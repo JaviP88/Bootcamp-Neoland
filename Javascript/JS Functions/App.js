@@ -86,3 +86,27 @@ let total = sumAll(numbers);
 console.log(total);
 
 
+/*--------------**Iteración #4: Calcular el promedio**------------------
+
+Calcular un promedio es una tarea extremadamente común. Puedes usar este array para probar tu función:
+
+const numbers = [12, 21, 38, 5, 45, 37, 6];
+function average(param) {
+  // insert code
+}*/
+
+console.log('---------------**Iteración #4: Calcular el promedio**---------------');
+
+const numbers1 = [12, 21, 38, 5, 45, 37, 6];
+
+function average(queNoSeMeOlvide) {
+  let acumulator = 0;
+  for(i = 0; i < queNoSeMeOlvide.length; i++){
+    acumulator = acumulator + (queNoSeMeOlvide[i] / queNoSeMeOlvide.length);   ///es igual que ==> acumulator += queNoSeMeOlvide[i] / queNoSeMeOlvide.length;
+  }
+  return acumulator
+}
+
+let totalAverage = average(numbers1);
+console.log(totalAverage);
+

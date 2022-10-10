@@ -110,3 +110,47 @@ function average(queNoSeMeOlvide) {
 let totalAverage = average(numbers1);
 console.log(totalAverage);
 
+/*--------------**Iteración #5: Calcular promedio de strings**----------------
+
+Crea una función que reciba por parámetro un array y cuando es un valor number lo sume y de lo contrario cuente la longitud del string y lo sume. Puedes usar este array para probar tu función:
+
+const mixedElements = [6, 1, 'Rayo', 1, 'vallecano', '10', 'upgrade', 8, 'hub'];
+function averageWord(param) {
+  // insert code
+}*/
+
+console.log('---------------**Iteración #5: Calcular promedio de strings**---------------');
+console.log('---- Probamos con for of -----');
+
+const mixedElements = [6, 1, 'Rayo', 1, 'vallecano', '10', 'upgrade', 8, 'hub'];
+
+function averageWord(param){
+  let acumulator = 0;
+  
+  for (averageWord of param){
+    if (typeof (averageWord) === 'number'){
+      acumulator += averageWord}
+    else {acumulator += averageWord.length
+      }
+  }
+  return acumulator;
+}
+let sumElements = averageWord(mixedElements);
+console.log(sumElements);
+
+console.log('---- Ahora probamos con arrow function -----');
+
+const averageWordArrow = (param) => {
+  let acumulator = 0;
+  
+  for (averageWordCambio of param){     // No puede ser el mismo nombre que la constante averageWordArrow.
+    if (typeof (averageWordCambio) === 'number'){
+      acumulator += averageWordCambio}
+    else {acumulator += averageWordCambio.length
+      }
+  }
+  return acumulator;
+}
+let sumaAverageWordArrow = averageWordArrow(mixedElements)
+console.log(sumaAverageWordArrow);
+

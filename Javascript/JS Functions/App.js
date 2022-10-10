@@ -154,3 +154,68 @@ const averageWordArrow = (param) => {
 let sumaAverageWordArrow = averageWordArrow(mixedElements)
 console.log(sumaAverageWordArrow);
 
+
+/*-------------**Iteración #6: Valores únicos**---------------
+
+Crea una función que reciba por parámetro un array y compruebe si existen elementos duplicados, en caso que existan los elimina para retornar un array sin los elementos duplicados. Puedes usar este array para probar tu función:
+
+const duplicates = [
+  'sushi',
+  'pizza',
+  'burger',
+  'potatoe',
+  'pasta',
+  'ice-cream',
+  'pizza',
+  'chicken',
+  'onion rings',
+  'pasta',
+  'soda'
+];
+function removeDuplicates(param) {
+  // insert code
+}*/
+console.log('---------------**Iteración #6: Valores únicos**---------------');
+
+const duplicates = [
+  'sushi',
+  'pizza',
+  'burger',
+  'potatoe',
+  'pasta',
+  'ice-cream',
+  'pizza',
+  'chicken',
+  'onion rings',
+  'pasta',
+  'soda'
+];
+
+function removeDuplicates(foodList) {
+  let noDuplicate = [];
+  for(i = 0; i < foodList.length; i++){ 
+    let food = foodList[i];
+    if(!noDuplicate.includes(foodList[i])){
+      noDuplicate.push(food);
+    }
+  }
+  return noDuplicate;
+}
+let newRemoveDuplicates = removeDuplicates(duplicates);
+console.log(newRemoveDuplicates);
+
+console.log('---- Ahora probamos con arrow function -----');
+
+const removeDuplicatesArrow = (foodListArrow) => {
+  let noDuplicateList = [];
+  for(foodRemoveDuplicatesArrow of foodListArrow){ 
+    if(!noDuplicateList.includes(foodListArrow[i])){
+      noDuplicateList.push(foodListArrow[i]);
+    }
+  }
+  return noDuplicateList;
+}
+let newRemoveDuplicatesArrow = removeDuplicatesArrow(duplicates);
+console.log(newRemoveDuplicates);
+
+

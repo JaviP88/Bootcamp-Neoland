@@ -1,6 +1,6 @@
 # Bootcamp-Neoland
 
-//Pasar informacion a GitHub
+//----------- Pasar informacion a GitHub --------------
 
 git status
 git add .

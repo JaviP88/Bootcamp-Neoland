@@ -268,3 +268,68 @@ const finderName = (array, palabra) => {
 }
 finderName(nameFinder, 'Marc');
 
+
+
+    //-------------------**Iteration #8: Contador de repeticiones**----------------------------
+    console.log('-------**Iteration #8: Contador de repeticiones**------')
+    /*Crea una función que nos devuelva el número de veces que se repite cada una de las palabras que lo conforma.
+    Puedes usar este array para probar tu función:
+    
+    const counterWords = [
+      'code',
+      'repeat',
+      'eat',
+      'sleep',
+      'code',
+      'enjoy',
+      'sleep',
+      'code',
+      'enjoy',
+      'upgrade',
+      'code'
+    ];
+    function repeatCounter(param) {
+      // insert code
+    } */
+    
+    const counterWords = [
+      'code',
+      'repeat',
+      'eat',
+      'sleep',
+      'code',
+      'enjoy',
+      'sleep',
+      'code',
+      'enjoy',
+      'upgrade',
+      'code'
+    ];
+    
+    const repeatCounter = (array) => {
+      let counter = 0;
+      let arrayRepeticiones = [];
+    
+      array.forEach((name) => {
+        counter = 0;
+        array.forEach((nameRepeat) => {
+          if(name == nameRepeat)counter++;})
+          arrayRepeticiones.push(name + ': ' + counter);
+      })
+      let arrayNoRepe = []
+      arrayRepeticiones.forEach((nameAlone) => {
+        if(!arrayNoRepe.includes(nameAlone)){
+          arrayNoRepe.push(nameAlone)
+        }
+      })
+
+      console.log(arrayRepeticiones);
+      console.log(arrayNoRepe);
+    }
+
+    
+
+    repeatCounter(counterWords);
+    
+    
+    

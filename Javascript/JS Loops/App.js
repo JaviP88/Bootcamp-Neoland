@@ -34,42 +34,6 @@ const alumns = [
 
 
 
-/*to-DO PEDRO 
-
-Para añadir nueva propiedad a un objeto podéis hacerlo de esta forma mas sencilla:
-
-objeto.isApproved =true
-
-//donde objeto es el objeto que recorremos (cada alumno en nuestro caso)
-
-//isApproved --- es la propiedad queremos definir o modificar 
-
-// true ---- es el valor que le asignamos a la propiedad 
-
-/////---------Ejemplo-----------
-
-colegios = [
-    {name: 'Pilarica', Clase1: 100, Clase1: 80, Clase1: 10}, 
-		{name: 'Lorica', Clase1: 89, Clase1: 50, Clase1: 40},	
-]
-
-recorremos el array de objetos con un forEach para quedarnos en cada uno
-de los elementos
-
-colegios.forEach((colegios)=>{
-	//le añadimos la propiedad nueva llamada "pintada" y el valor = true
-	colegios.pintada = true;
-})
-
-console.log(colegios);
-
-// -------- CONSOLE--------------
-
-{ name: 'Pilarica', Clase1: 10, pintada: true },
-{ name: 'Lorica', Clase1: 40, pintada: true }
-
-```*/
-
 //----------------**Iteración #3: Probando For...of**---------------
 console.log('----------------**Iteración #3: Probando For...of**---------------')
 /*Usa un bucle forof para recorrer todos los destinos del array. Imprime en un ***console.log***
@@ -78,7 +42,7 @@ Puedes usar este array:*/
 
 const placesToTravel = ['Japon', 'Venecia', 'Murcia', 'Santander', 'Filipinas', 'Madagascar']
 
-for(city of placesToTravel){
+for(let city of placesToTravel){    //El 'let' no es necesario pero por buenas practicas es mejor ponerlo.
 	console.log(city);
 }
 
@@ -87,22 +51,27 @@ for(city of placesToTravel){
 //-------------**Iteración #4: Probando For...in**---------------
 console.log('-------------**Iteración #4: Probando For...in**---------------')
 //Usa un **for...in** para imprimir por consola los datos del alienígena.. Puedes usar este objeto:
-/*
+
 const alien = {
     name: 'Wormuck',
     race: 'Cucusumusu',
     planet: 'Eden',
     weight: '259kg'
 }
-*/
+
+for(let key in alien){
+	console.log(`The ${key} of this alien is ${alien[key]}`);    
+}	
+				//alien => te saca 'key: valor' --- alien[key] => saca 'valor' --- 
+				//key => saca 'keys' --- [key] => saca ['keys']
+
 
 
 //---------------**Iteración #5: Probando For**-----------------
 console.log('---------------**Iteración #5: Probando For**-----------------')
-/*Usa un bucle **for** para recorrer todos los destinos del array y elimina los elementos que tengan el id 11 y 40.
-Imprime en un ***console log*** el array. Puedes usar este array:*/
+/*Usa un bucle **for** para recorrer todos los destinos del array y elimina los elementos que tengan
+el id 11 y 40. Imprime en un ***console log*** el array. Puedes usar este array:*/
 
-//const placesToTravel = [{id: 5, name: 'Japan'}, {id: 11, name: 'Venecia'}, {id: 23, name: 'Murcia'}, {id: 40, name: 'Santander'}, {id: 44, name: 'Filipinas'}, {id: 59, name: 'Madagascar'}]
 
 
 

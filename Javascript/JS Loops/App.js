@@ -31,8 +31,32 @@ const alumns = [
 	{name: 'Alfredo Blanco', T1: false, T2: false, T3: false},
 	{name: 'Raquel Benito', T1: true, T2: true, T3: true}
 ]
+for(let alumn of alumns){
+	let counter = 0;
+	for(key in alumn){
+		if(alumn[key] === true){
+			counter++
+		} 
+	}
+	if(counter >= 2){
+		alumn.isApproved = true;
+	} else {
+		alumn.isApproved = false;
+	}
+}
+console.log(alumns);
 
-
+/* ---Otra forma de hacerlo---
+let alumnsPass = []
+for(let alumn of alumns){
+	if(alumn.T1 == true && alumn.T2 == true || alumn.T1 == true && alumn.T3 == true || alumn.T2 == true && alumn.T3 == true){
+		alumnsPass.push(`${alumn['name']} ***isApproved***`);
+	} else {
+		alumnsPass.push(`${alumn['name']} Fail`);
+	}
+}
+console.log(alumnsPass);
+*/
 
 //----------------**Iteración #3: Probando For...of**---------------
 console.log('----------------**Iteración #3: Probando For...of**---------------')

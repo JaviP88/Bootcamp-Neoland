@@ -83,7 +83,7 @@ const placesToTravel2 = [
 
 const iWouldTravel = []
 for(let i = 0; i<placesToTravel2.length; i++){
-	if(placesToTravel2[i].id != 11 && placesToTravel2[i].id != 40){
+	if(!(placesToTravel2[i].id == 11) && placesToTravel2[i].id != 40){
 		iWouldTravel.push(placesToTravel2[i]);
 	}
 }

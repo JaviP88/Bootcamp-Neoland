@@ -81,9 +81,9 @@ const placesToTravel2 = [
 	{id: 59, name: 'Madagascar'}
 ];
 
-const iWouldTravel = []
+const iWouldTravel = [];
 for(let i = 0; i<placesToTravel2.length; i++){
-	if(!(placesToTravel2[i].id == 11) && placesToTravel2[i].id != 40){
+	if(!(placesToTravel2[i].id == 11) && placesToTravel2[i].id != 40){    // poner la negación ! en un lado o en otro es lo mismo pero si se pone delante hay que poner entre ()
 		iWouldTravel.push(placesToTravel2[i]);
 	}
 }
@@ -95,7 +95,7 @@ console.log(iWouldTravel);
 console.log('---------------**Iteración #6: Mixed For...of e includes**-----------------')
 /* Usa un bucle **for...of** para recorrer todos los juguetes y elimina los que incluyan la palabra gato.
 Recuerda que puedes usar la función ***.includes()*** para comprobarlo.Puedes usar este array:*/
-/*
+
 const toys = [
 {id: 5, name: 'Buzz MyYear'}, 
 {id: 11, name: 'Action Woman'}, 
@@ -103,7 +103,15 @@ const toys = [
 {id: 40, name: 'El gato con Guantes'},
 {id: 40, name: 'El gato felix'}
 ]
-*/
+
+const toysNoCat = [];
+for(let toy of toys){
+	if(!toy.name.includes('gato')){				//Si quieres recorrer por dentro el objeto buscando una palabra, hay que hacer 1º for of y 2º for in
+		toysNoCat.push(toy);
+	}
+}
+console.log(toysNoCat);
+
 
 
 //-----------------**Iteración #7: For...of avanzado**-------------

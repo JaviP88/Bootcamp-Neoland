@@ -26,11 +26,11 @@ for(let categoriesMovie of filmCategories){
 console.log(categoriesNoRepeat);
 
 
-/***Iteración #2: Mix Fors**
+//-------------**Iteración #2: Mix Fors**------------
+console.log('-------------**Iteración #2: Mix Fors**------------')
+/*Dado el siguiente javascript usa forof y forin para hacer la media del volumen de todos los sonidos
+favoritos que tienen los usuarios. */
 
-Dado el siguiente javascript usa forof y forin para hacer la media del volumen de todos los sonidos favoritos que tienen los usuarios.
-
-```jsx
 const users = [
     {name: 'Manolo el del bombo',
         favoritesSounds: {
@@ -61,9 +61,29 @@ const users = [
         }
     },
 ]
-```
 
-**Iteración #3: Mix Fors**
+let volumeList = [];
+
+for(const user of users){
+    for(key in user.favoritesSounds){
+        volumeList.push(user.favoritesSounds[key].volume);
+    }
+}
+console.log(volumeList);
+
+let counter = 0;
+
+for(volumeSum of volumeList){
+    counter += volumeSum;
+}
+
+let averageVolume = counter / volumeList.length;
+console.log('El resultado de la media es:');
+console.log(averageVolume);                         // El reultado de la media es 57.25
+
+
+
+/***Iteración #3: Mix Fors**
 
 Dado el siguiente javascript usa forof y forin para saber cuantas veces ha sido cada sonido agregado por los usuarios a favorito. Para ello recorre la lista de usuarios y usa forin para recoger el nombre de los sonidos que el usuario tenga como favoritos.
 Una vez accedas a ellos piensa en la mejor forma de hacer un conteo de cada vez que ese sonido se repita como favorito en cada usuario.

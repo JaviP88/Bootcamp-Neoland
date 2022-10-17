@@ -83,15 +83,18 @@ console.log(averageVolume);                         // El reultado de la media e
 
 
 
-/***Iteración #3: Mix Fors**
+//------------**Iteración #3: Mix Fors**------------
+console.log('------------**Iteración #3: Mix Fors**------------')
+/* Dado el siguiente javascript usa forof y forin para saber cuantas veces ha sido cada
+sonido agregado por los usuarios a favorito. Para ello recorre la lista de usuarios y usa
+forin para recoger el nombre de los sonidos que el usuario tenga como favoritos.
+Una vez accedas a ellos piensa en la mejor forma de hacer un conteo de cada vez que ese
+sonido se repita como favorito en cada usuario.
 
-Dado el siguiente javascript usa forof y forin para saber cuantas veces ha sido cada sonido agregado por los usuarios a favorito. Para ello recorre la lista de usuarios y usa forin para recoger el nombre de los sonidos que el usuario tenga como favoritos.
-Una vez accedas a ellos piensa en la mejor forma de hacer un conteo de cada vez que ese sonido se repita como favorito en cada usuario.
+Este ejercicio es un poco complicado con los conocimientos actuales pero...a la vez un buen reto y
+oportunidad para comprender que hay muchas formas de hacer las cosas en javascript. */
 
-Este ejercicio es un poco complicado con los conocimientos actuales pero...a la vez un buen reto y oportunidad para comprender que hay muchas formas de hacer las cosas en javascript.
-
-```jsx
-const users = [
+const users2 = [
     {name: 'Manolo el del bombo',
         favoritesSounds: {
             waves: {format: 'mp3', volume: 50},
@@ -121,9 +124,39 @@ const users = [
         }
     },
 ]
-```
+// 1º hay que sacar el array de sonidos.
+let favoritesSoundsList =[];
 
-**Iteración #4: Métodos findArrayIndex**
+for(const user of users2){
+    for(const key in user.favoritesSounds){
+        favoritesSoundsList.push(key);
+    }
+}
+
+// 2º hay que sacar las veces que se repite un sonido.
+const favSoundsCounter = [];
+for(const sound of favoritesSoundsList){
+    counter = 0;
+    for(const repeatSound of favoritesSoundsList){
+        if(sound === repeatSound){
+            counter++;
+        }
+    }
+favSoundsCounter.push(`${sound}: ${counter}`);
+}
+
+//3º hay que quitar los sonidos que se repiten.
+const favSoundsNoDuplicate = [];
+for(soundAlone of favSoundsCounter){
+    if(!favSoundsNoDuplicate.includes(soundAlone)){
+        favSoundsNoDuplicate.push(soundAlone);
+    }
+}
+console.log(favSoundsNoDuplicate);
+
+
+
+/***Iteración #4: Métodos findArrayIndex**
 
 Crea una función llamada `findArrayIndex` que reciba como parametros un array de textos y un texto y devuelve la posición del array cuando el valor del array sea igual al valor del texto que enviaste como parametro. Haz varios ejemplos y compruebalos.
 
@@ -139,9 +172,15 @@ Ej array:
 ['Caracol', 'Mosquito', 'Salamandra', 'Ajolote']
 ```
 
+
+
+
 **Iteración #5: Función rollDice**
 
 Crea una función llamada **rollDice()** que reciba como parametro el numero de caras que queramos que tenga el dado que deberá silumar el codigo dentro de la función. Como hemos dicho, que la función use el parametro para simular una tirada de dado y retornar el resultado. Si no se te ocurre como hacer un numero aleatorio no te preocupes! busca información sobre la función de javascript **Math.random();**
+
+
+
 
 **Iteración #6: Función swap**
 

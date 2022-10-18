@@ -156,26 +156,58 @@ console.log(favSoundsNoDuplicate);
 
 
 
-/***Iteración #4: Métodos findArrayIndex**
-
-Crea una función llamada `findArrayIndex` que reciba como parametros un array de textos y un texto y devuelve la posición del array cuando el valor del array sea igual al valor del texto que enviaste como parametro. Haz varios ejemplos y compruebalos.
+//--------------**Iteración #4: Métodos findArrayIndex**-------------
+console.log('--------------**Iteración #4: Métodos findArrayIndex**-------------')
+/*Crea una función llamada `findArrayIndex` que reciba como parametros un array de textos y
+un texto y devuelve la posición del array cuando el valor del array sea igual al valor del
+texto que enviaste como parametro. Haz varios ejemplos y compruebalos.
 
 Sugerencia de función:
 
-```jsx
 function findArrayIndex(array, text) {}
-```
 
 Ej array:
 
-```jsx
-['Caracol', 'Mosquito', 'Salamandra', 'Ajolote']
-```
+['Caracol', 'Mosquito', 'Salamandra', 'Ajolote']*/
+
+const bugs = ['Caracol', 'Mosquito', 'Salamandra', 'Ajolote'];
+const pokemon = ['Charmander', 'Squiertle', 'Bulbasaur', 'Mew'];
+const sports = ['Quidich', 'Basketnall', 'Spikeball', 'Curling', 'Quidich'];
+
+const findArrayIndex = (array, text) => {
+  if(array.includes(text)){
+    console.log(`${text}, está en la posición ${array.indexOf(text)}.`);
+  } else {
+    console.log(`${text}, no está en esta lista.`);
+  }
+}
+findArrayIndex(bugs, 'Mosquito');
+findArrayIndex(pokemon, 'Gengar');
+findArrayIndex(sports, 'Quidich');
+
+//------ Así se podría hacer con un forEach----- 
+console.log('------ Así se podría hacer con un forEach-----');
+
+const findArrayIndex2 = (array, text) => {
+    let position = [];
+    array.forEach((element, index) => {
+        if(text === element){
+            position.push(element + ' está en la posición ' + index);
+        }
+    });
+    return position;
+}
+let findIndexBugsMosquito = findArrayIndex2(bugs, 'Mosquito');
+console.log(findIndexBugsMosquito);
+
+let findIndexPokemonGengar = findArrayIndex2(pokemon, 'Gengar');
+console.log(findIndexPokemonGengar);
+
+let findIndexSportsQuidich =findArrayIndex2(sports, 'Quidich');
+console.log(findIndexSportsQuidich);
 
 
-
-
-**Iteración #5: Función rollDice**
+/***Iteración #5: Función rollDice**
 
 Crea una función llamada **rollDice()** que reciba como parametro el numero de caras que queramos que tenga el dado que deberá silumar el codigo dentro de la función. Como hemos dicho, que la función use el parametro para simular una tirada de dado y retornar el resultado. Si no se te ocurre como hacer un numero aleatorio no te preocupes! busca información sobre la función de javascript **Math.random();**
 

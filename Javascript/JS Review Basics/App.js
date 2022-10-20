@@ -1,5 +1,5 @@
 //-------------**Iteración #1: Mix for e includes**-----------
-console.log('-------------**Iteración #1: Mix for e includes**-----------')
+console.log('-------------**Iteración #1: Mix for e includes**-----------');
 /* Dado el siguiente javascript usa forof para recorrer el array de películas, genera un nuevo array
 con las categorías de las películas e imprime por consola el array de categorías. Ten en cuenta que 
 las categorías no deberían repetirse. Para filtrar las categorías puedes ayudarte de la función **.includes()** */
@@ -27,7 +27,7 @@ console.log(categoriesNoRepeat);
 
 
 //-------------**Iteración #2: Mix Fors**------------
-console.log('-------------**Iteración #2: Mix Fors**------------')
+console.log('-------------**Iteración #2: Mix Fors**------------');
 /*Dado el siguiente javascript usa forof y forin para hacer la media del volumen de todos los sonidos
 favoritos que tienen los usuarios. */
 
@@ -84,7 +84,7 @@ console.log(averageVolume);                         // El reultado de la media e
 
 
 //------------**Iteración #3: Mix Fors**------------
-console.log('------------**Iteración #3: Mix Fors**------------')
+console.log('------------**Iteración #3: Mix Fors**------------');
 /* Dado el siguiente javascript usa forof y forin para saber cuantas veces ha sido cada
 sonido agregado por los usuarios a favorito. Para ello recorre la lista de usuarios y usa
 forin para recoger el nombre de los sonidos que el usuario tenga como favoritos.
@@ -157,7 +157,7 @@ console.log(favSoundsNoDuplicate);
 
 
 //--------------**Iteración #4: Métodos findArrayIndex**-------------
-console.log('--------------**Iteración #4: Métodos findArrayIndex**-------------')
+console.log('--------------**Iteración #4: Métodos findArrayIndex**-------------');
 /*Crea una función llamada `findArrayIndex` que reciba como parametros un array de textos y
 un texto y devuelve la posición del array cuando el valor del array sea igual al valor del
 texto que enviaste como parametro. Haz varios ejemplos y compruebalos.
@@ -208,7 +208,7 @@ console.log(findIndexSportsQuidich);
 
 
 //------------**Iteración #5: Función rollDice**------------
-console.log('------------**Iteración #5: Función rollDice**------------')
+console.log('------------**Iteración #5: Función rollDice**------------');
 
 /*Crea una función llamada **rollDice()** que reciba como parametro el numero de
 caras que queramos que tenga el dado que deberá simular el codigo dentro de la
@@ -222,12 +222,22 @@ const rollDice = (numberFaces) => {
 
 console.log(rollDice(56));
 
-/***Iteración #6: Función swap**
-
-Crea una función llamada `swap()` que reciba un array y dos parametros que sean indices del
+//----------**Iteración #6: Función swap**------------
+console.log('----------**Iteración #6: Función swap**------------');
+/*Crea una función llamada `swap()` que reciba un array y dos parametros que sean indices del
 array. La función deberá intercambiar la posición de los valores de los indices que hayamos
 enviado como parametro. Retorna el array resultante.
-
 Sugerencia de array:
 ['Mesirve', 'Cristiano Romualdo', 'Fernando Muralla', 'Ronalguiño']*/
 
+const furgolPrayers = ['Mesirve', 'Cristiano Romualdo', 'Fernando Muralla', 'Ronalguiño'];
+const swap = (team, prayer1, prayer2) => {
+    let change1 = team.indexOf(prayer1);
+    let change2 = team.indexOf(prayer2);
+
+    team.splice(change1, 1, prayer2);
+    team.splice(change2, 1, prayer1);
+}
+
+swap(furgolPrayers, 'Mesirve', 'Fernando Muralla');
+console.log(furgolPrayers);

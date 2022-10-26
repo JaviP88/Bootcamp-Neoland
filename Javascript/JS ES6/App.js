@@ -134,43 +134,75 @@ colorsCopy.splice(2, 1);
 console.log(colorsCopy);
 
 
-/***Iteración #4: Map**
-
-```jsx
-4.1 Dado el siguiente array, devuelve un array con sus nombres 
-utilizando .map().
+//-------------**Iteración #4: Map**------------
+console.log('-------------**Iteración #4: Map**------------');
+/*4.1 Dado el siguiente array, devuelve un array con sus nombres 
+utilizando .map().*/
 const users = [
-	{id: 1, name: 'Abel'},
+	{id:1, name: 'Abel'},
 	{id:2, name: 'Julia'},
 	{id:3, name: 'Pedro'},
 	{id:4, name: 'Amanda'}
 ];
 
-4.2 Dado el siguiente array, devuelve una lista que contenga los valores 
+const usersName = users.map((user) => {
+	return user.name;
+});
+console.log(usersName);
+
+
+/*4.2 Dado el siguiente array, devuelve una lista que contenga los valores 
 de la propiedad .name y cambia el nombre a 'Anacleto' en caso de que 
-empiece por 'A'.
-const users = [
-	{id: 1, name: 'Abel'},
+empiece por 'A'.*/
+const moreUsers = [
+	{id:1, name: 'Abel'},
 	{id:2, name: 'Julia'},
 	{id:3, name: 'Pedro'},
 	{id:4, name: 'Amanda'}
 ];
+    //Se puede hacer con .charAt() ...
+const usersNew1 = moreUsers.map((child) => {
+	if(child.name.charAt(0) == 'A'){
+		child.name = 'Anacleto Tocahuevos'
+	}
+	return child.name;
+})
+console.log(usersNew1);
 
-4.3 Dado el siguiente array, devuelve una lista que contenga los valores 
+	//o con .startsWith()
+
+const usersNew2 = moreUsers.map((person) => {
+	if(person.name.startsWith('A')){
+		person.name = 'Anacleto'
+	}
+	return person.name;
+});
+console.log(usersNew2);
+
+
+
+/*4.3 Dado el siguiente array, devuelve una lista que contenga los valores 
 de la propiedad .name y añade al valor de .name el string ' (Visitado)' 
-cuando el valor de la propiedad isVisited = true.
+cuando el valor de la propiedad isVisited = true.*/
 const cities = [
 	{isVisited:true, name: 'Tokyo'}, 
 	{isVisited:false, name: 'Madagascar'},
 	{isVisited:true, name: 'Amsterdam'}, 
 	{isVisited:false, name: 'Seul'}
 ];
-```
 
-**Iteración #5: Filter**
+const visitedCities = cities.map((city) => {
+	if(city.isVisited === true){
+		return city.name + ' (Visited).';
+	} else {
+		return city.name;
+	}
+})
+console.log(visitedCities);
 
-```jsx
-5.1 Dado el siguiente array, utiliza .filter() para generar un nuevo array 
+//-----------**Iteración #5: Filter**-----------
+console.log('-----------**Iteración #5: Filter**-----------');
+/*5.1 Dado el siguiente array, utiliza .filter() para generar un nuevo array 
 con los valores que sean mayor que 18
 const ages = [22, 14, 24, 55, 65, 21, 12, 13, 90];
 

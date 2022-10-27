@@ -202,44 +202,95 @@ console.log(visitedCities);
 
 //-----------**Iteración #5: Filter**-----------
 console.log('-----------**Iteración #5: Filter**-----------');
-/*5.1 Dado el siguiente array, utiliza .filter() para generar un nuevo array 
-con los valores que sean mayor que 18
+/* 5.1 Dado el siguiente array, utiliza .filter() para generar un nuevo array 
+con los valores que sean mayor que 18*/
+console.log(5.1);
 const ages = [22, 14, 24, 55, 65, 21, 12, 13, 90];
 
-5.2 Dado el siguiente array, utiliza .filter() para generar un nuevo array 
-con los valores que sean par.
-const ages = [22, 14, 24, 55, 65, 21, 12, 13, 90];
+const over18 = ages.filter(function (age){
+	return age > 18;
+});
+console.log(over18);
 
-5.3 Dado el siguiente array, utiliza .filter() para generar un nuevo array 
-con los streamers que tengan el gameMorePlayed = 'League of Legends'.
+// Ahora lo haremos con array function.
+const over18Arrow = ages.filter(age => age > 18);
+console.log(over18Arrow);
+
+
+/* 5.2 Dado el siguiente array, utiliza .filter() para generar un nuevo array 
+con los valores que sean par.*/
+console.log(5.2);
+const ages1 = [22, 14, 24, 55, 65, 21, 12, 13, 90];
+const arrayPar = ages1.filter(function (age){
+	return age % 2 == 0;
+});
+console.log(arrayPar);
+// Con arrow function:
+const otherArrayPar = ages1.filter(age => age % 2 == 0);
+console.log(otherArrayPar);
+
+
+/* 5.3 Dado el siguiente array, utiliza .filter() para generar un nuevo array 
+con los streamers que tengan el gameMorePlayed = 'League of Legends'.*/
+console.log(5.3);
 const streamers = [
 	{name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
 	{name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'}, 
 	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
 	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
 ];
+const lolPlayers = streamers.filter(function(player){
+	return player.gameMorePlayed === 'League of Legends'
+})
+console.log(lolPlayers);
 
-5.4 Dado el siguiente array, utiliza .filter() para generar un nuevo array 
+// Y con arrow function:
+const lolPlayersArrow = streamers.filter(player => player.gameMorePlayed === 'League of Legends')
+console.log(lolPlayersArrow);
+
+
+/* 5.4 Dado el siguiente array, utiliza .filter() para generar un nuevo array 
 con los streamers que incluyan el caracter 'u' en su propiedad .name. Recomendamos 
-usar la funcion .includes() para la comprobación.
-const streamers = [
+usar la funcion .includes() para la comprobación.*/
+console.log(5.4);
+/*const streamers = [
 	{name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
 	{name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'},
 	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
 	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
-];
+];*/
 
-5.5 utiliza .filter() para generar un nuevo array con los streamers que incluyan 
+const streamersWithU = streamers.filter(function(streamer){
+	return streamer.name.includes('u');
+});
+console.log(streamersWithU);
+// Y con arrow function sería:
+const streamersWithUArrow = streamers.filter(streamer => streamer.name.includes('e'));
+console.log(streamersWithUArrow);
+
+
+/* 5.5 utiliza .filter() para generar un nuevo array con los streamers que incluyan 
 el caracter 'Legends' en su propiedad .gameMorePlayed. Recomendamos usar la funcion 
 .includes() para la comprobación.
 Además, pon el valor de la propiedad .gameMorePlayed a MAYUSCULAS cuando 
-.age sea mayor que 35.
+.age sea mayor que 35.*/
+console.log(5.5);
 
-5.6 Dado el siguiente html y javascript, utiliza .filter() para mostrar por consola 
+const lolOver35 = streamers.filter(function (streamer){
+	return streamer.gameMorePlayed.includes('Legends') && streamer.age > 35;
+});
+console.log(lolOver35);
+// Y con arrow function sería:
+const lolOver35Arrow = streamers.filter(streamer => streamer.gameMorePlayed.includes('Legends') && streamer.age > 35);
+console.log(lolOver35Arrow);
+
+
+/* 5.6 Dado el siguiente html y javascript, utiliza .filter() para mostrar por consola 
 los streamers que incluyan la palabra introducida en el input. De esta forma, si 
 introduzco 'Ru' me deberia de mostrar solo el streamer 'Rubius'. Si
-introduzco 'i', me deberia de mostrar el streamer 'Rubius' e 'Ibai'.
-const streamers = [
+introduzco 'i', me deberia de mostrar el streamer 'Rubius' e 'Ibai'.*/
+console.log(5.6);
+/*const streamers33 = [
 	{name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
 	{name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'},
 	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
@@ -259,7 +310,7 @@ const streamers = [
 </body>
 </html>
 
-5.7 Dado el siguiente html y javascript, utiliza .filter() para mostrar por consola 
+/* 5.7 Dado el siguiente html y javascript, utiliza .filter() para mostrar por consola 
 los streamers que incluyan la palabra introducida en el input. De esta forma, si 
 introduzco 'Ru' me deberia de mostrar solo el streamer 'Rubius'. Si introduzco 'i', 
 me deberia de mostrar el streamer 'Rubius' e 'Ibai'.

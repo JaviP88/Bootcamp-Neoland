@@ -314,8 +314,9 @@ console.log(5.6);
 los streamers que incluyan la palabra introducida en el input. De esta forma, si 
 introduzco 'Ru' me deberia de mostrar solo el streamer 'Rubius'. Si introduzco 'i', 
 me deberia de mostrar el streamer 'Rubius' e 'Ibai'.
-En este caso, muestra solo los streamers filtrados cuando hagamos click en el button.
-const streamers = [
+En este caso, muestra solo los streamers filtrados cuando hagamos click en el button.*/
+console.log(5.7);
+/*const streamers = [
 	{name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
 	{name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'},
 	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
@@ -335,25 +336,35 @@ const streamers = [
   <button data-function="toShowFilterStreamers">Filter</button>
 </body>
 </html>
-```
+```*/
 
-**Iteración #6: Find**
-
-```jsx
-6.1 Dado el siguiente array, usa .find() para econtrar el número 100.
+//-----------**Iteración #6: Find**-----------
+console.log('-----------**Iteración #6: Find**-----------')
+//6.1 Dado el siguiente array, usa .find() para econtrar el número 100.
+console.log('6.1');
 const numbers = [32, 21, 63, 95, 100, 67, 43];
 
-6.2 Dado el siguiente array, usa .find() para econtrar la pelicula del año 2010.
+const number100 = numbers.find((number) => number == 100);
+console.log(number100);
+
+
+// 6.2 Dado el siguiente array, usa .find() para econtrar la pelicula del año 2010.
+console.log('6.2');
 const movies = [
 	{title: 'Madagascar', stars: 4.5, date: 2015},
 	{title: 'Origen', stars: 5, date: 2010},
 	{title: 'Your Name', stars: 5, date: 2016}
 ];
 
-6.3 Dado el siguiente javascript, usa .find() para econtrar el alien de nombre 
+const movie2010 = movies.find((movie) => movie.date == 2010);
+console.log(movie2010);
+
+
+/* 6.3 Dado el siguiente javascript, usa .find() para econtrar el alien de nombre 
 'Cucushumushu' y la mutación 'Porompompero'. Una vez que los encuentres, usa 
 spread operator para fusionarlos teniendo en cuenta que el objeto de la mutación 
-lo queremos meter en la propiedad .mutation del objeto fusionado.
+lo queremos meter en la propiedad .mutation del objeto fusionado.*/
+console.log('6.3')
 const aliens = [
 	{name: 'Zalamero', planet: 'Eden', age: 4029},
 	{name: 'Paktu', planet: 'Andromeda', age: 32},
@@ -364,9 +375,24 @@ const mutations = [
 	{name: 'Fly me to the moon', description: 'Permite volar, solo y exclusivamente a la luna'},
 	{name: 'Andando que es gerundio', description: 'Invoca a un señor mayor como Personal Trainer'}
 ];
-```
 
-**Iteración #7: Reduce**
+// 1º cambio el nombre name para que no se pise con un .map()
+const mutationChangeName = mutations.map((mutation) => ({
+	mutationName: mutation.name,
+	mutationDescription: mutation.description
+}));
+console.log(mutationChangeName);
+// Y ahora empezamos el ejercicio.
+const findCucushumushu = aliens.find((alien) => alien.name === 'Cucushumushu');
+console.log(findCucushumushu);
+const findPorompompero = mutationChangeName.find((mutation) => mutation.mutationName === 'Porompompero');
+console.log(findPorompompero);
+const alienAndMutation = {...findCucushumushu, ...findPorompompero};
+console.log(alienAndMutation);
+
+
+
+/***Iteración #7: Reduce**
 
 ```jsx
 7.1 Dado el siguiente array, haz una suma de todos las notas de los examenes de 

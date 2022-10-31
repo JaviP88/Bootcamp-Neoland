@@ -376,7 +376,7 @@ const mutations = [
 	{name: 'Andando que es gerundio', description: 'Invoca a un señor mayor como Personal Trainer'}
 ];
 
-// 1º cambio el nombre name para que no se pise con un .map()
+// 1º cambio el nombre "name" de la variable objeto "mutation" con un .map para que no se pise.
 const mutationChangeName = mutations.map((mutation) => ({
 	mutationName: mutation.name,
 	mutationDescription: mutation.description
@@ -392,12 +392,11 @@ console.log(alienAndMutation);
 
 
 
-/***Iteración #7: Reduce**
-
-```jsx
-7.1 Dado el siguiente array, haz una suma de todos las notas de los examenes de 
-los alumnos usando la función .reduce().
-
+//-------------**Iteración #7: Reduce**-------------
+console.log('-------------**Iteración #7: Reduce**-------------');
+/*7.1 Dado el siguiente array, haz una suma de todos las notas de los examenes de 
+los alumnos usando la función .reduce().*/
+console.log('7.1');
 const exams = [
     {name: 'Yuyu Cabeza Crack', score: 5}, 
     {name: 'Maria Aranda Jimenez', score: 1}, 
@@ -410,14 +409,44 @@ const exams = [
     {name: 'Robert Kiyosaki', score: 2},
     {name: 'Keanu Reeves', score: 10}
 ];
+// Método normal:
+const sumAll = exams.reduce(function (accumulator, student){
+	return accumulator + student.score;
+}, 0);
+console.log(sumAll);
+// Con arrow functions sería:
+const sumAllArrow = exams.reduce((accumulator, student) => accumulator + student.score, 0);
+console.log(sumAllArrow);
 
-7.2 Dado el mismo array, haz una suma de todos las notas de los examenes de los 
-alumnos que esten aprobados usando la función .reduce().
 
-7.3 Dado el mismo array, haz la media de las notas de todos los examenes .reduce().
-```
+/*7.2 Dado el mismo array, haz una suma de todos las notas de los examenes de los 
+alumnos que esten aprobados usando la función .reduce().*/
+// 1º sacamos los alumnos que han aprovado con un .filter
+const aproved = exams.filter((student) => student.score >= 5);
+console.log(aproved);
+// 2º Método normal.
+const sumStudentsPass = aproved.reduce(function(acumulatorAproved, student){
+	return acumulatorAproved + student.score;
+}, 0);
+console.log(sumStudentsPass);
+// O con arrow function sería:
+const sumStudentsPassArrow = aproved.reduce((acumulatorAproved, student) => acumulatorAproved + student.score, 0);
+console.log(sumStudentsPassArrow);
 
-**Iteración #8: Bonus**
+
+//7.3 Dado el mismo array, haz la media de las notas de todos los examenes .reduce().
+// Metodo normal
+const media = exams.reduce(function(acumulator, student){
+	return acumulator + student.score / exams.length;
+}, 0);
+console.log(media);
+// Con arrow function sería:
+const mediaArrow = exams.reduce((acumulator, student) => acumulator + student.score / exams.length, 0);
+console.log(mediaArrow);
+
+
+
+/***Iteración #8: Bonus**
 
 6.1 Dado el siguiente javascript filtra los videojuegos por gender = 'RPG' usando 
 .filter() y usa .reduce() para conseguir la media de sus .score. 

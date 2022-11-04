@@ -15,3 +15,15 @@ function sum (numberOne, numberTwo){
 sum (6, 4);
 sum (2, 8);
 sum (5, 5);
+
+// Con arrow functions sería:
+const sumArrow = (numberOne, numberTwo) => {
+  if (numberOne > numberTwo){
+    console.log(`El número más alto es: ${numberOne}`);
+  } else if (numberOne < numberTwo){
+    console.log(`El número más alto es ${numberTwo}`);
+  } else (console.log('Los dos números son iguales'));
+};
+sumArrow (6, 4);
+sumArrow (2, 8);
+sumArrow (5, 5);

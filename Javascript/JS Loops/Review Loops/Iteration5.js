@@ -12,3 +12,10 @@ const placesToTravel2 = [
 	{id: 59, name: 'Madagascar'}
 ];
 
+let placesToTravel2New = [];
+for (let city of placesToTravel2){
+	if (city.id != 40 && city.id != 11){
+		placesToTravel2New.push(city);
+	};
+};
+console.log(placesToTravel2New);

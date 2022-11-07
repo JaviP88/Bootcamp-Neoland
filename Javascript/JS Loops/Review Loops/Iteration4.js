@@ -9,3 +9,6 @@ const alien = {
     weight: '259kg'
 }
 
+for (let key in alien){
+    console.log(`The alien's ${key} is ${alien[key]}`);     // Cuando queremos entrar a todas las propiedades de 'key'
+};                                                          // solo podemos hacerlo con [], no vale ni con .key, ni con ['key'] 

@@ -6,3 +6,6 @@ Puedes usar este array:*/
 
 const placesToTravel = ['Japon', 'Venecia', 'Murcia', 'Santander', 'Filipinas', 'Madagascar']
 
+for (let place of placesToTravel){          // No es necesario el 'let', pero es buena práctica ponerlo
+    console.log(place);
+};

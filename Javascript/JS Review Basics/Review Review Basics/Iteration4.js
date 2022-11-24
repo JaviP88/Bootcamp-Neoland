@@ -15,3 +15,19 @@ Ej array:
 const bugs = ['Caracol', 'Mosquito', 'Salamandra', 'Ajolote'];
 const pokemon = ['Charmander', 'Squiertle', 'Bulbasaur', 'Mew'];
 const sports = ['Quidich', 'Basketnall', 'Spikeball', 'Curling', 'Quidich'];
+
+function findArrayIndex(array, text) {
+    if (array.includes(text)){
+        console.log(`${text} se encuentra en la posición ${array.indexOf(text)} y ${array.lastIndexOf(text)}`);
+    } else {
+        console.log(`${text}, no está en este array`);
+    };
+};
+
+findArrayIndex(bugs, 'Mosquito');
+findArrayIndex(bugs, 'Caracol');
+findArrayIndex(pokemon, 'Bulbasaur');
+findArrayIndex(pokemon, 'Pikachu');
+findArrayIndex(sports, 'Quidich');      // Como quiero sacar los 2 elementos, he usado .indexOf y .lastIndexOf
+findArrayIndex(sports, 'Spikeball');
+

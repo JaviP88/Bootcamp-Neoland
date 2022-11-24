@@ -39,3 +39,37 @@ const users2 = [
         }
     },
 ]
+
+// 1º sacamos un array con las keys de favouriteSounds
+const favouriteSoundsList = [];
+
+for (const user of users2) {
+    for (let key in user.favoritesSounds) {     //para ello hay que entrar dorectamente en user.favouriteSounds.
+        favouriteSoundsList.push(key);
+    };
+};
+
+// 2º Tenemos que crear un counter para ver cuantas veces se repite cada sonido.
+
+const counterFavouritesSounds = [];
+
+for (let sound of favouriteSoundsList) {
+    let counter = 0;
+    for (let repeat of favouriteSoundsList){
+        if (sound === repeat) {
+            counter++;
+        }
+    };
+    counterFavouritesSounds.push(`${sound}: ${counter}`)
+};
+
+// 3º mostramos cada sonido sin repetir.
+
+const counterSoundsNoRepeat = [];
+
+for (let sound of counterFavouritesSounds) {
+    if (!counterSoundsNoRepeat.includes(sound)){
+        counterSoundsNoRepeat.push(sound);
+    };
+};
+console.log(counterSoundsNoRepeat);

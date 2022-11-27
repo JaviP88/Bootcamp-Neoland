@@ -105,11 +105,11 @@ firstDiv.insertAdjacentElement('afterend', newP3);
 // 2.9 Inserta p con el texto 'Voy dentro!', dentro de todos los div con la clase .fn-insert-here
 
 //1º recuperamos toda la clase...
-const insertHere = document.querySelectorAll('.fn-insert-here');
+const insertHere = document.querySelectorAll('div.fn-insert-here');			//Corrección de error: con div delante del punto, ataca solo a las etiquetas div.
 
 //2º con un bucle, añadimos el texto a cada uno de los div de la clase...
 for (const text of insertHere) {
-	text.innerHTML += `<p>-> Voy dentro! <-</p>`;
+	text.innerHTML = `<p>-> Voy dentro! <-</p>`;
 };
 
 // También puede ser así:

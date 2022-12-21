@@ -1,0 +1,26 @@
+nav {
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+
+nav > ul {
+    display: flex;
+    list-style-type: none;
+    gap: 0.5rem;
+}
+
+nav #homeBtn {
+    background: none;
+    border: none;
+    color:inherit;
+}
+
+nav #homeBtn > img {
+    height: 1rem;
+}

@@ -1,0 +1,12 @@
+.container {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.container > h1 {
+    text-align: center;
+}

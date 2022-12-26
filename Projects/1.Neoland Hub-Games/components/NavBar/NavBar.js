@@ -1,3 +1,4 @@
+import { initContent } from "../../main";
 import { createHome } from "../../pages/Home/Home";
 import "./navBar.css";
 import { ramdonNum } from "./utils/RamdonNum";
@@ -47,7 +48,7 @@ const addListenerColorModeBtn = () => {
 const addListenerHomeBtn = () => {
   const homeBtn = document.querySelector('#homeBtn');
   homeBtn.addEventListener('click', () => {
-    createHome();
+    initContent(undefined);
   })
 }
 
@@ -57,5 +58,6 @@ const addListenerLogOut = () => {
   logOutBtn.addEventListener('click', () => {
     localStorage.clear()
     wellcomeUser.innerHTML = `Please, enter your user name`;
+    initContent()
   })
 }

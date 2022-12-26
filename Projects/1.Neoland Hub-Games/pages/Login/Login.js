@@ -1,4 +1,5 @@
 import './login.css';
+import { initContent } from '../../main';
 
 export const createLogin = () => {
     const login = document.querySelector('#main');
@@ -20,6 +21,7 @@ const addListenerLoginBtn = () => {
 
     logInBtn.addEventListener('click', () => { 
         localStorage.setItem('user', userName.value);
-        wellcomeUser.innerHTML = `Wellcome ${localStorage.getItem('user')}`
+        wellcomeUser.innerHTML = `Wellcome ${localStorage.getItem('user')}`;
+        initContent();
     })
 }

@@ -1,8 +1,7 @@
 import { createNavBar } from "./components/navBar/NavBar";
 import { createLogin } from "./pages/Login/Login"
 import { createHome } from "./pages/Home/Home";
-
-
+import { createPokeGallery } from "./pages/PokeAPI/PokeGallery/PokeGallery";
 createNavBar();
 
 export const initContent = (navigation) => {
@@ -12,7 +11,10 @@ export const initContent = (navigation) => {
             ? createHome()
             : createLogin()
             break;
-    
+        case 'pokeAPI':
+            createPokeGallery()
+            break;
+
         default:
             console.log('no hay nada')
             break;

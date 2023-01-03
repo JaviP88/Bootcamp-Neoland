@@ -1,7 +1,7 @@
 import { initContent } from "../../main";
 import { createHome } from "../../pages/Home/Home";
 import "./navBar.css";
-import { ramdonNum } from "./utils/RamdonNum";
+import { ramdonNum } from "../../utils/RamdonNum";
 
 export const createNavBar = () => {
   const navBar = document.querySelector("#navBar");

@@ -6,11 +6,11 @@ export const createHome = () => {
     main.innerHTML = `
         <h1>Neoland Hub Games</h1>
         <button id='pokeAPIBtn'>
-            <img src='' alt='Pokedex img'/>
+            <img src='./images/pokeapi.png' alt='PokeAPI img'/>
             <h4>PokeAPI</h4>
         </button>
         <button id='ticTacToeBtn'>
-            <img src='' alt='Tic tac toe img'/>
+            <img src='./images/tictactoe.png' alt='Tic tac toe img'/>
             <h4>Tic tac toe</h4>
         </button>
     `

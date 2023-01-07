@@ -11,34 +11,82 @@ export const createPokeGallery = () => {
     cleanMain();
 
     main.innerHTML = `
-    <h1>Pokedex</h1>
+    <h1 id='title'>Pokedex</h1>
     <section id='cardFinder'>
         <form>
         <input type='text' id='cardFinderInput' placeholder='Enter a pokemon name here'
         </form>
     </section>
     <section id='finderType'>
-        <button id='allBtn'>All</button>
-        <button id='grassBtn'>Grass</button>
-        <button id='fireBtn'>Fire</button>
-        <button id='waterBtn'>Water</button>
-        <button id='bugBtn'>Bug</button>
-        <button id='normalBtn'>Normal</button>
-        <button id='poisonBtn'>Poison</button>
-        <button id='electricBtn'>Electric</button>
-        <button id='groundBtn'>Ground</button>
-        <button id='fairyBtn'>Fairy</button>
-        <button id='fightingBtn'>Fighting</button>
-        <button id='psychicBtn'>Psychic</button>
-        <button id='rockBtn'>Rock</button>
-        <button id='ghostBtn'>Ghost</button>
-        <button id='iceBtn'>Ice</button>
-        <button id='dragonBtn'>Dragon</button>
+        <button id='allBtn'>
+            <img src='./icons/pokeTypeLogo/allBtn.png' alt='all type button'/>
+            <h4>All</h4>
+        </button>
+        <button id='grassBtn'>
+            <img src='./icons/pokeTypeLogo/grassBtn.png' alt='Grass type button'/>
+            <h4>Grass</h4>
+        </button>
+        <button id='fireBtn'>
+            <img src='./icons/pokeTypeLogo/fireBtn.png' alt='fire type button'/>
+            <h4>Fire</h4>
+        </button>
+        <button id='waterBtn'>
+            <img src='./icons/pokeTypeLogo/waterBtn.png' alt='water type button'/>
+            <h4>Water</h4>
+        </button>
+        <button id='bugBtn'>
+            <img src='./icons/pokeTypeLogo/bugBtn.png' alt='bug type button'/>
+            <h4>Bug</h4>
+        </button>
+        <button id='normalBtn'>
+            <img src='./icons/pokeTypeLogo/normalBtn.png' alt='normal type button'/>
+            <h4>Normal</h4>
+        </button>
+        <button id='poisonBtn'>
+            <img src='./icons/pokeTypeLogo/poisonBtn.png' alt='poison type button'/>
+            <h4>Poison</h4>
+        </button>
+        <button id='electricBtn'>
+            <img src='./icons/pokeTypeLogo/electricBtn.png' alt='electric type button'/>
+            <h4>Electric</h4>
+        </button>
+        <button id='groundBtn'>
+            <img src='./icons/pokeTypeLogo/groundBtn.png' alt='ground type button'/>
+            <h4>Ground</h4>
+        </button>
+        <button id='fairyBtn'>
+            <img src='./icons/pokeTypeLogo/fairyBtn.png' alt='fairy type button'/>
+            <h4>Fairy</h4>
+        </button>
+        <button id='fightingBtn'>
+            <img src='./icons/pokeTypeLogo/fightingBtn.png' alt='fighting type button'/>
+            <h4>Fighting</h4>
+        </button>
+        <button id='psychicBtn'>
+            <img src='./icons/pokeTypeLogo/psychicBtn.png' alt='psychic type button'/>
+            <h4>Psychic</h4>
+        </button>
+        <button id='rockBtn'>
+            <img src='./icons/pokeTypeLogo/rockBtn.png' alt='rock type button'/>
+            <h4>Rock</h4>
+        </button>
+        <button id='ghostBtn'>
+            <img src='./icons/pokeTypeLogo/ghostBtn.png' alt='ghost type button'/>
+            <h4>Ghost</h4>
+        </button>
+        <button id='iceBtn'>
+            <img src='./icons/pokeTypeLogo/iceBtn.png' alt='ice type button'/>
+            <h4>Ice</h4>
+        </button>
+        <button id='dragonBtn'>
+            <img src='./icons/pokeTypeLogo/dragonBtn.png' alt='dragon type button'/>
+            <h4>Dragon</h4>
+        </button>
     </section>
     <section id='cardsContainer'></section>
     `
 
-    filterList('')
+    filterList(pokemonList, '')
 
     addListenerTypesBtn()
    

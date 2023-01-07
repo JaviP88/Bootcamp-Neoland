@@ -8,7 +8,9 @@ export const createNavBar = () => {
   navBar.innerHTML = `
     <nav>
         <h4 id='wellcomeUser'>${printUser()}</h4>
-        <button id='colorModeBtn'>Color mode</button>
+        <button id='colorModeBtn'>
+          <img src='./images/colorchange.png' alt='Color change button'/>
+        </button>
         <ul>
           <li>
             <button id='homeBtn'>

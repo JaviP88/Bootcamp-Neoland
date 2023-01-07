@@ -1,0 +1,66 @@
+#title {
+    display: flex;
+    justify-content: center;
+}
+
+/* Buscador tiempo real */
+
+#cardFinder {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1.5rem;
+    width: 100%;
+}
+
+
+#cardFinderInput {
+    font-size: large;
+    height: 2rem;
+    width: 100%;
+}
+
+
+/* Botones por tipos */
+
+
+#finderType > button {
+    background: none;
+    border: none;
+    color:inherit;
+    width: 4.5rem;
+    padding: 0;
+}
+
+#finderType > button > img {
+    height: 2rem;
+}
+
+#finderType > button > h4 {
+    margin: 0;
+}
+
+#finderType {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+
+
+
+}
+
+/* Cartas pokemon */
+
+#cardsContainer > ul {
+    display: flex;
+    list-style-type: none;
+    gap: 3rem;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+
+#cardsContainer img {
+    height: 10rem;
+}

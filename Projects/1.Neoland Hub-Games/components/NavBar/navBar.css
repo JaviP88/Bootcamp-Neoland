@@ -5,7 +5,15 @@ nav {
     align-items: center;
 }
 
+nav > button {
+    background: none;
+    border: none;
+    color:inherit;
+}
 
+nav > button > img {
+    height: 5rem;
+}
 
 
 

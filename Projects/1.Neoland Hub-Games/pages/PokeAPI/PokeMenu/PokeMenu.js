@@ -12,8 +12,16 @@ export const createPokeMenu = () => {
     main.innerHTML = `
     <div class='container'>
         <h1>PokeAPI</h1>
-        <button id='pokedexBtn'>Pokedex</button>
-        <button id='pokeShop'>Poke Shop</button>
+            <section>
+                <button id='pokedexBtn'>
+                <img src='./images/pokedex.png' alt='Pokedex img'/> 
+                <h4>Pokedex</h4>
+                </button>
+                <button id='pokeShop'>
+                <img src='./images/pokeshop.png' alt='Pokeshop img'/> 
+                <h4>Poke Shop</h4>
+            </section>
+        </button>
     </div>
     `
     addListenerPokedex()

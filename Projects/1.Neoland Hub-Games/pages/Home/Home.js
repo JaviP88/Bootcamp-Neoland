@@ -5,14 +5,16 @@ export const createHome = () => {
     const main = document.querySelector('#main');
     main.innerHTML = `
         <h1>Neoland Hub Games</h1>
-        <button id='pokeAPIBtn'>
-            <img src='./images/pokeapi.png' alt='PokeAPI img'/>
-            <h4>PokeAPI</h4>
-        </button>
-        <button id='ticTacToeBtn'>
-            <img src='./images/tictactoe.png' alt='Tic tac toe img'/>
-            <h4>Tic tac toe</h4>
-        </button>
+        <section class='buttons'>
+            <button id='pokeAPIBtn'>
+                <img src='./images/pokeapi.png' alt='PokeAPI img'/>
+                <h4>PokeAPI</h4>
+            </button>
+            <button id='ticTacToeBtn'>
+                <img src='./images/tictactoe.png' alt='Tic tac toe img'/>
+                <h4>Tic tac toe</h4>
+            </button>
+        </section>
     `
     addListenerPokeAPI();
     // addListenerTicTacToe();

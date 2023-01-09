@@ -45,22 +45,9 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.5rem;
-
-
-
 }
-
-/* Cartas pokemon */
 
 #cardsContainer > ul {
     display: flex;
-    list-style-type: none;
-    gap: 3rem;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-
-#cardsContainer img {
-    height: 10rem;
+    flex-wrap: wrap;
 }

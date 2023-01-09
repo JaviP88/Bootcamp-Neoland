@@ -3,7 +3,6 @@ import { pokeCards } from "../pokeCards/PokeCards";
 export const filterList = (list, word) => {
     const cardsContainer = document.querySelector('#cardsContainer')
     const cardFinderInput = document.querySelector('#cardFinderInput')
-    const cardsUl = document.createElement('ul');
 
 
     cardsContainer.innerHTML = '';

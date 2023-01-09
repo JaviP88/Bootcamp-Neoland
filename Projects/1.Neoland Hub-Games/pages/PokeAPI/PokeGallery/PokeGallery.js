@@ -86,6 +86,7 @@ export const createPokeGallery = () => {
     <section id='cardsContainer'></section>
     `
 
+    pokeCards(pokemonList)
     filterList(pokemonList, '')
 
     addListenerTypesBtn()

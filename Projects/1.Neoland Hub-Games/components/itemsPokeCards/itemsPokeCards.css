@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.pokeCards:hover {
+    transform: scale(1.08);
+    opacity: 1;
+}
+
+#cardsContainer > ul {
+    display: flex;
+    list-style-type: none;
+    gap: 3rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 2rem;
+}
+
+.pokeCards {
+    border: 8px solid whitesmoke;
+    border-radius: 1rem;
+    padding: 1rem;
+    height: 35.7rem;
+    min-width: 15rem;
+    max-width: 15rem;
+    opacity: 0.6;
+    transition: all ease-in-out 0.5s;
+    color: whitesmoke;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 7px;
+}
+
+.header > h1 {
+    font-size: 1.3rem;
+}
+
+.pokeImg {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(9, 9, 9, 0.208);
+    border-radius: 1rem;
+    padding: 2rem;
+    height: 10rem;
+}
+
+.pokeImg > img {
+    width: 13rem;
+}
+
+.type {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+.pokeCards > h3 {
+    display: flex;
+    justify-content: center;
+    padding: 1.3rem;
+}
+
+.characteristics > ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.characteristics > ul > li > div {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.characteristics img {
+    height: 1.5rem;
+    filter: invert(98%);
+}
+
+.characteristics h5 {
+    font-size: large;
+}
+
+.description {
+    padding-top: 1rem;
+}
+.description > p {
+    text-align: justify;
+    height: 5rem;
+}
+
+.baseStats > ul {
+    list-style-type: none;
+}
+
+.baseStats > ul > li > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.baseStats > ul > li > div > meter {
+    width: 9rem;
+}
+
+.type_grass {
+    background-color: #82C448;
+}
+.type_fire {
+    background-color: #EE8031;
+}
+.type_water {
+    background-color: #638FF0;
+}
+.type_bug {
+    background-color: #B8C457;
+}
+.type_normal {
+    background-color: #A9A67B;
+}
+.type_poison {
+    background-color: #A23EA0;
+}
+.type_electric{
+    background-color: #F8D02C;
+}
+.type_ground {
+    background-color: #E2BF65;
+}
+.type_fairy {
+    background-color: #D685AD;
+}
+.type_fighting {
+    background-color: #C02F2B;
+}
+.type_psychic {
+    background-color: #F95587;
+}
+.type_rock {
+    background-color: #B6A136;
+}
+.type_ghost {
+    background-color: #745797;
+}
+.type_ice {
+    background-color: #8FDDD7;
+}
+.type_dragon {
+    background-color: #9062FD;
+}

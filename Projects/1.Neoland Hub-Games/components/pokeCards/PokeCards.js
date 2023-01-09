@@ -19,7 +19,7 @@ export const pokeCards = (list) => {
                     <img src='${pokemon.img1}' alt='${pokemon.name}'/>
                 </div> 
                 <section class='type'>
-                    <h2>${pokemon.type1}</h2>
+                    <h2 class='type_${pokemon.type1}'>${pokemon.type1}</h2>
                 </section>
                 <h3>Characteristics</h3>
                 <section class='characteristics'>
@@ -77,8 +77,8 @@ export const pokeCards = (list) => {
                 <img src='${pokemon.img1}' alt='${pokemon.name}'/>
             </div> 
             <section class='type'>
-                <h2>${pokemon.type1}</h2>
-                <h2>${pokemon.type2}</h2>
+                <h2 class='type_${pokemon.type1}'>${pokemon.type1}</h2>
+                <h2 class='type_${pokemon.type2}'>${pokemon.type2}</h2>
             </section>
             <h3>Characteristics</h3>
             <section class='characteristics'>

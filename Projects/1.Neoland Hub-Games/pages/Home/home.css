@@ -12,12 +12,31 @@
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    gap: 5rem;
+}
+
+
+#pokeAPIBtn {
+    background: none;
+    border: none;
+    color:inherit;
+    width: 13rem;
+    padding: 0;
+}
+
+#ticTacToeBtn {
+    background: none;
+    border: none;
+    color:inherit;
+    width: 13rem;
+    padding: 0;
 }
 
 #pokeAPIBtn > img {
     height: 10rem;
 }
+
+
 
 #ticTacToeBtn > img {
     height: 10rem;

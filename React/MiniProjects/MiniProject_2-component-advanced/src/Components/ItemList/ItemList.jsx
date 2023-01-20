@@ -1,7 +1,7 @@
 import "./ItemList.css";
-import H1 from "../../Utils/H1/H1";
-import H2 from "../../Utils/H2/H2";
-import Image from "../../Utils/Image/Image";
+import H1 from '../UI/H1/H1'
+import H2 from "../UI/H2/H2";
+import Image from "../UI/Image/Image";
 
 
 export const ItemList = ({ character }) => {

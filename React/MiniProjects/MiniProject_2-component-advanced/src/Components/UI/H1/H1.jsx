@@ -1,6 +1,6 @@
 import './H1.css'
 
-const H1 = ({keyText}, {text}) => {
+const H1 = ({keyText, text}) => {
     const completeText = `${keyText}: ${text}`
 
     return(

@@ -10,10 +10,10 @@ const App = () => {
   return(
   <>
     <Header>
-      <Title text={'iiiiiyoooo'} />
+      <Title text={'Rick & Morty'} />
     </Header>
     <Main>
-      <H2 text={'Listado de cartitas'} />
+      <H2 text={'Character'} />
       <CharacterList />
     </Main>
   </>

@@ -5,7 +5,7 @@ const H2 = ({keyText, text}) => {
     
     return(
     <>
-        {{keyText} == 'undefined'
+        {typeof(keyText) == 'undefined'
         ? <h2>{text}</h2> 
         : <h2>{completeText}</h2>}
     </>

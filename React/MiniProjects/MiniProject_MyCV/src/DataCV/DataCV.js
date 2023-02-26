@@ -50,6 +50,118 @@ export const DataCV = {
             where: "I.E.S. Carmen Laffón, Sevilla.",
         },
     ],
+    courses: [
+        {
+            name: "Google educator Level 1",
+            hours: "4",
+            date: "2019",
+            where: "Escuela IDEO.",
+        },  
+        {
+            name: "Lenguaje bimodal",
+            hours: "2",
+            date: "2019",
+            where: "Escuela IDEO.",
+        },  
+        {
+            name: "Aprendizaje lecto-escritor",
+            hours: "4",
+            date: "2019",
+            where: "Escuela IDEO.",
+        }, 
+        {
+            name: "Respetar la niñez, acompañar emociones, límites, normas y conflictos",
+            hours: "6",
+            date: "2019",
+            where: "Escuela IDEO.",
+        }, 
+        {
+            name: "Aprendizaje cooperativo",
+            hours: "2",
+            date: "2018",
+            where: "Escuela IDEO.",
+        }, 
+        {
+            name: "Juegos de mesa desde un enfoque neuropsicológico",
+            hours: "2",
+            date: "2018",
+            where: "Escuela IDEO.",
+        }, 
+        {
+            name: "Romper esquemas y enamorar 2ª parte",
+            hours: "2",
+            date: "2018",
+            where: "Escuela IDEO.",
+        }, 
+        {
+            name: "Escape room educativo",
+            hours: "14",
+            date: "2018",
+            where: "Escuela IDEO.",
+        }, 
+        {
+            name: "Programa INCORPORA",
+            hours: "20",
+            date: "2018",
+            where: "Escuela IDEO.",
+        }, 
+        {
+            name: "Formación sobre síndrome down",
+            hours: "2",
+            date: "2018",
+            where: "Escuela IDEO.",
+        }, 
+        {
+            name: "Formación competencia digital",
+            hours: "2",
+            date: "2017",
+            where: "Escuela IDEO.",
+        }, 
+        {
+            name: "Minecraft en educación",
+            hours: "2",
+            date: "2017",
+            where: "Escuela IDEO.",
+        }, 
+        {
+            name: "Gamificación en el aula",
+            hours: "6",
+            date: "2017",
+            where: "Escuela IDEO.",
+        }, 
+        {
+            name: "Introducción a la programación",
+            hours: "6",
+            date: "2017",
+            where: "Escuela IDEO.",
+        }, 
+        {
+            name: "AR den el aula",
+            hours: "2",
+            date: "2017",
+            where: "Escuela IDEO.",
+        }, 
+        {
+            name: "Educar con 3 C's: capacidad, competencia y corazón",
+            hours: "8",
+            date: "2017",
+            where: "Integratek.",
+        }, 
+        {
+            name: "Introducción a la gamificación a través de casos prácticos",
+            hours: "20",
+            date: "2017",
+            where: "Miriadax.",
+        }, 
+        {
+            name: "Introducción a la gamificación para docentes. 1ª Edición",
+            hours: "40",
+            date: "2017",
+            where: "Fundación Telefónica.",
+        }, 
+        
+        
+    ],
     experience: [
         {
             name: "Profesor de Educación Física de Secundaria (sustitución)",
@@ -144,11 +256,18 @@ export const DataCV = {
         },
         
     ],
-    languages: {
-      language: "English",
-      wrlevel: "Native",
-      splevel: "Native",
-    },
+    languages: [
+        {
+            language: "Spanish",
+            wrlevel: "Native",
+            splevel: "Native",
+        },
+        {
+            language: "English",
+            wrlevel: "B2",
+            splevel: "C1",
+        },
+    ],
     habilities: [
       "Robotics",
       "Robot Programming",
@@ -167,11 +286,6 @@ export const DataCV = {
             description:
             "Profesor de esquí de niños con deficiencia visual, auditiva, movilidad reducida, etc.",
         },
-      {
-        name: "Damage Control",
-        where: "U.S.A.",
-        description:
-          "The United States Department of Damage Control, occasionally known as the DODC, is a department of the United States of America. Initially a subsidiary of S.H.I.E.L.D., Damage Control was an organization specializing in post-battle clean-up. Following the Battle of New York, Damage Control was made into an executive branch of the United States government, and in a joint venture with Stark Industries, was tasked with acquiring alien and other dangerous artifacts along with cleaning up damages caused by enhanced individuals.",
-      },
+      
     ],
   };

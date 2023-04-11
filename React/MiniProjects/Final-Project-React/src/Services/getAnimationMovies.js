@@ -1,18 +1,11 @@
-import { useEffect, useState } from 'react';
-
 import useAxios from '../Hooks/useAxios';
 
-const getAnimationMovies = (URL) => {
-  const [data, setData] = useState([]);
-  const getData = async () => {
-    const data = await useAxios(URL);
-    setData(data);
+export const getAnimationMovies = async () => {
+  const options = {
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/discover/movie?api_key=${
+      import.meta.env.VITE_APP_APIKEY
+    }&with_genres=16`,
   };
-
-  useEffect(() => {
-    getData();
-  }, [URL]);
-  return data;
+  return await useAxios(options);
 };
-
-export default getAnimationMovies;

@@ -10,7 +10,8 @@ const Nav = () => {
   return (
     <>
       {user && (
-        <section>
+        <section className="nav">
+          <h1 className="mainTitle">🍿📽️ DibuPelis 📽️🍿</h1>
           <ul>
             <li>
               <NavLink to="home">Home</NavLink>

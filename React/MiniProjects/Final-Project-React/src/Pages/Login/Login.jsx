@@ -20,10 +20,12 @@ const Login = () => {
         <>
           <h1>Bienvenid@</h1>
           <p>Por favor, introduzca su nombre de usuario</p>
-          <input type="text" ref={textInput} />
-          <button className="loginButton" onClick={() => login(textInput.current.value)}>
-            Login
-          </button>
+          <section>
+            <input type="text" ref={textInput} />
+            <button className="loginButton" onClick={() => login(textInput.current.value)}>
+              Login
+            </button>
+          </section>
         </>
       )}
     </div>

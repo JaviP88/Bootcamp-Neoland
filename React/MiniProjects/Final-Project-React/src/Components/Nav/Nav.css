@@ -1,0 +1,25 @@
+.nav {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: rgba(76, 76, 76, 0.503);
+}
+
+.mainTitle {
+  margin: 0;
+  font-size: 5rem;
+}
+
+.nav > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 3rem;
+}
+
+.nav > ul > li {
+  list-style-type: none;
+  font-size: 1.75rem;
+}
+
+.nav a:hover {color: #E1C340; text-decoration: none }

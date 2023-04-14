@@ -8,7 +8,6 @@ function App() {
   return (
     <div className="App">
       <header className="header">
-        <h1>🍿📽️ DibuPelis 📽️🍿</h1>
         <Nav />
       </header>
       <main>

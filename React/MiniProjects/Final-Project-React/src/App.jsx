@@ -14,7 +14,7 @@ function App() {
         <Outlet />
       </main>
       <footer>
-        <p>Soy el fooooooterrrrr</p>
+        <p>🌰 Realizada por mi.</p>
       </footer>
     </div>
   );

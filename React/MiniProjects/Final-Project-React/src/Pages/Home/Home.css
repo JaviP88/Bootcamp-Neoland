@@ -1,0 +1,15 @@
+.home{
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+}
+
+.home button {
+ height: 17rem;
+ width: 18rem;
+}
+
+.home img {
+    height: 10rem;
+    border-radius: 20rem;
+}

@@ -19,9 +19,9 @@ const Nav = () => {
             <li>
               <NavLink to="animationMovies">Animation Movies</NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink to="animeMovies">Anime Movies</NavLink>
-            </li>
+            </li> */}
             <li className="logout">
               <NavLink to="/" onClick={() => logout()} className="logout">
                 Log out

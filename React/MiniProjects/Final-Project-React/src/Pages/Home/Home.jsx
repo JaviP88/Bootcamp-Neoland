@@ -4,8 +4,11 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <div>
-      <p>Estoy en el Home</p>
+    <div className="home">
+      <button>
+        <img src="../../../public/img/animationButton.jpg" alt="animation Button" />
+        <h3>Animation Movies</h3>
+      </button>
     </div>
   );
 };

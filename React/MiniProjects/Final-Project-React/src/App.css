@@ -1,20 +1,40 @@
 #root {
-  min-height: 100vh;
-  max-width: 1280px;
-  margin: 0 ;
+  margin: 0;
   padding: 0;
   text-align: center;
-  background-color: #4CD7D0;
-  color: #F8EA8C;
+  background-color: #4cd7d0;
+  color: #f8ea8c;
 }
 
-a:link {color: #F8EA8C; text-decoration: none }
-a:hover {color: #E1C340; text-decoration: none }
-a:visited {color: #F8EA8C; text-decoration: none }
+a:link {
+  color: #f8ea8c;
+  text-decoration: none;
+}
+a:hover {
+  color: #e1c340;
+  text-decoration: none;
+}
+a:visited {
+  color: #f8ea8c;
+  text-decoration: none;
+}
+
+header {
+  height: 25vh;
+}
 
 main {
   display: flex;
   justify-content: center;
   align-content: center;
-  min-height: 100vh;
+  min-height: 65vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  height: 10vh;
 }

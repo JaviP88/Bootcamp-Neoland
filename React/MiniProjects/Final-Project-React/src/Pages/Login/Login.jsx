@@ -22,7 +22,10 @@ const Login = () => {
           <p>Por favor, introduzca su nombre de usuario</p>
           <section>
             <input type="text" ref={textInput} />
-            <button className="loginButton" onClick={() => login(textInput.current.value)}>
+            <button
+              className="loginButton"
+              onClick={() => login(textInput.current.value)}
+            >
               Login
             </button>
           </section>

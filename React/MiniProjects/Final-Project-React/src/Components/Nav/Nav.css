@@ -22,4 +22,7 @@
   font-size: 1.75rem;
 }
 
-.nav a:hover {color: #E1C340; text-decoration: none }
+.nav a:hover {
+  color: #e1c340;
+  text-decoration: none;
+}

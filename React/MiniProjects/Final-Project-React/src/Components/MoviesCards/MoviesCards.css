@@ -25,11 +25,11 @@
 .imgContainer {
   position: relative;
   width: 100%;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 .imgMovie {
-  box-shadow: 0 60px 60px -60px #F8EA8C;
+  box-shadow: 0 60px 60px -60px #f8ea8c;
   border-radius: 4px;
   object-fit: cover;
   width: 100%;
@@ -44,9 +44,8 @@
   margin: auto;
   border-radius: 4px;
   transform: translateY(25%);
-  transition: .3s ease;
+  transition: 0.3s ease;
   opacity: 0;
-
 }
 
 .imgMovieNotFound {
@@ -58,9 +57,8 @@
   margin: auto;
   border-radius: 4px;
   transform: translateY(25%);
-  transition: .3s ease;
+  transition: 0.3s ease;
   opacity: 0;
-
 }
 
 .imgContainer:hover {
@@ -73,15 +71,14 @@
   bottom: 0;
   height: 100%;
   width: 100%;
-  background-image:
-linear-gradient(
-  to bottom,
-  transparent 10%,
-  rgba(0, 0, 0, 0.5) 50%,
-  rgba(0, 0, 0) 95%
+  background-image: linear-gradient(
+    to bottom,
+    transparent 10%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0) 95%
   );
   opacity: 0;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 .imgContainer:hover::before {
@@ -91,7 +88,6 @@ linear-gradient(
 .imgContainer:hover .imgMovieFinded {
   opacity: 1;
   transform: translateY(10%);
-
 }
 
 .imgContainer:hover .imgMovieNotFound {

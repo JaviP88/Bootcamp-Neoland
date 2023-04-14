@@ -13,7 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  background-color: #4CD7D0;
+  background-color: #4cd7d0;
 }
 
 body {
@@ -35,14 +35,14 @@ button {
   font-size: 1.2em;
   font-weight: bold;
   font-family: inherit;
-  color: #4CD7D0;
-  background-color: #F8EA8C;
+  color: #4cd7d0;
+  background-color: #f8ea8c;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  background-color: #E1C340;
-  color: #A4E8E0;
+  background-color: #e1c340;
+  color: #a4e8e0;
   border-color: #646cff;
 }
 button:focus,
@@ -57,7 +57,8 @@ input {
   font-size: 1.2rem;
   font-weight: bold;
   color: #060606;
-  background-color: #A4E8E0;
+  border-color: #f8ea8c;
+  background-color: #a4e8e0;
 }
 
 p {

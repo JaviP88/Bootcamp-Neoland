@@ -294,7 +294,7 @@ const sendPassword = async (req, res, next) => {
                 // una vez hasheada la contraseña la guardo en el bakend
                 try {
                     await User.findByIdAndUpdate(id, { password: newPasswordHash });
-                    // !! --> TEESTEAMOS QUE SE HA HECHO TODO CORRECTAMENTE
+                    //! --> TEESTEAMOS QUE SE HA HECHO TODO CORRECTAMENTE
                     //---> Nos traemos el user actualizado y hacemos un if comparando las contraseñas
                     const updateUser = await User.findById(id);
                     if (bcrypt.compareSync(securePassword, updateUser.password)) {
@@ -322,12 +322,55 @@ const sendPassword = async (req, res, next) => {
     };
 };
 
+
+//! ------------------------------------------------------------------------
+//? ---------------------CAMBIO CONTRASEÑA ESTANDO LOGADO-------------------
+//! ------------------------------------------------------------------------
+
+const modifyPassword = async (req, res, next) => {
+    try {
+        // Cuando quieres hacer un cambio de contraseña estando logado siempre te piden la contraseña antigua (en este caso será password)
+        // y la nueva contraseña (newPassword) que la sacaremos del body.
+        const { password, newPassword } = req.body;
+
+        const { _id } = req.user;
+        if (bcrypt.compareSync(password, req.user.password)) {
+            const newPasswordHash = bcrypt.hashSync(newPassword, 10);
+            try {
+                await User.findByIdAndUpdate(_id, {password: newPasswordHash});
+                // Ahora comprobamos que la contraseña se haya actualizado
+                const updateUser = await User.findById(_id);
+                if (bcrypt.compareSync(newPassword, updateUser.password)) {
+                    return res.status(200).json({
+                        updateUser:true
+                    });
+                } else {
+                    return res.status(404).json({
+                        updateUser: false
+                    });
+                };
+            } catch (error) {
+                return res.status(404).json(error.message)
+            }
+        } else {
+            return res.status(404).json('Password does not match')
+        }
+    } catch (error) {
+        return next(error)
+    };
+};
+
+
+
+
+
 module.exports = {
     register,
     checkNewUser,
     resentCode,
     login,
     forgotPassword,
-    sendPassword
+    sendPassword,
+    modifyPassword
 };
 

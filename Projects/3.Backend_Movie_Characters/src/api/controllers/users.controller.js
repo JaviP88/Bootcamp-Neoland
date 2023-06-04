@@ -361,6 +361,86 @@ const modifyPassword = async (req, res, next) => {
 };
 
 
+//! ------------------------------------------------------------------------
+//? -------------------------------UPDATE ----------------------------------
+//! ------------------------------------------------------------------------
+
+const update = async (req, res, next) => {
+    let catchImg = req.file?.path;  //? req.file siempre existe pero el .path no siempre existe por eso se pone file? --> optional chaining
+    try {
+        // actualizamos los indexes de los elementos unicos por si han modificado
+        await User.syncIndexes();
+        // instanciamos un nuevo modelo de user
+        const patchUser = new User(req.body);
+        // si tenemos la req.file le metemos el path de cloudinary
+        if (req.file) {
+            patchUser.image = req.file.path;
+        };
+        // estas cosas no quiero que me cambien por lo cual lo cojo del req.user gracias a que esto es con auth
+        patchUser._id = req.user._id;
+        patchUser.email = req.user.email;
+        patchUser.password = req.user.password;
+        patchUser.rol = req.user.rol;
+        patchUser.confirmationCode = req.user.confirmationCode;
+        patchUser.check = req.user.check;
+
+        // actualizamos en la db con el id y la instancia del modelo de user
+        try {
+            await User.findByIdAndUpdate(req.user._id, patchUser);
+            // borrramos en cloudinary la imagen antigua
+            if (req.file) {
+                deleteImgCloudinary(req.user.image);
+            }
+
+            //! ----------------test  runtime ----------------
+            // buscamos el usuario actualizado
+            const updateUser = await User.findById(req.user._id);
+            // cogemos las keys del body
+            const updateKeys = Object.keys(req.body);
+            
+            // creamos una variable para guardar los test
+            const testUpdate = [];
+            // recorremos las keys y comparamos
+            updateKeys.forEach((item) => {
+                // Ponemos item entre [] para que coja cada nombre de la clave concreta en lugar de la palabra 'item'
+                // Ponemos == ya que pueden aparecer numeros que en uno actue como numero y en otro como string (updateUser lo pasa a texto plano)
+                if (updateUser[item] == req.body[item]) {
+                    testUpdate.push({
+                        [item]: true
+                    });
+                } else {
+                    testUpdate.push({
+                        [item]: false
+                    });
+                };
+            });
+
+            //Ahora comparamos la imagen a ver si se ha actualizado
+            if (req.file) {
+                updateUser.image == req.file.path
+                ? testUpdate.push({
+                    file: true
+                })
+                : testUpdate.push({
+                    file: false
+                });
+            };
+            return res.status(200).json({
+                testUpdate
+            });
+        } catch (error) {
+            return res.status(404).json(error.message);            
+        };
+    } catch (error) {
+        if (req.file) deleteImgCloudinary(catchImg);
+        return next(error);
+    };
+};
+
+
+
+
+
 
 
 
@@ -371,6 +451,7 @@ module.exports = {
     login,
     forgotPassword,
     sendPassword,
-    modifyPassword
+    modifyPassword,
+    update
 };
 

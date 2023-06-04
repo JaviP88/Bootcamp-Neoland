@@ -8,7 +8,8 @@ const {
     forgotPassword,
     sendPassword,
     modifyPassword,
-    update
+    update,
+    deleteUser
 } = require("../controllers/users.controller");
 const { isAuth, isAuthAdmin } = require('../../middlewares/auth.middleware');
 const UserRoutes = express.Router()
@@ -20,7 +21,7 @@ UserRoutes.post('/login', login);
 UserRoutes.get('/forgotpassword', forgotPassword);   //? Hay que hacer el redirecionamiento (más abajo), para hacerlo sólo se puede hacer con get, nunca con post
 UserRoutes.patch('/changepassword', [isAuth], modifyPassword);
 UserRoutes.patch('/update/update', [isAuth], upload.single('image'), update);
-
+UserRoutes.delete('/', [isAuth], deleteUser);
 
 
 //! -------REDIRECT --------------------

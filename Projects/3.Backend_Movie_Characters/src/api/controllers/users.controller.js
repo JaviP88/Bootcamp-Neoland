@@ -437,11 +437,24 @@ const update = async (req, res, next) => {
     };
 };
 
+//! ------------------------------------------------------------------------
+//? -------------------------------DELETE ----------------------------------
+//! ------------------------------------------------------------------------
 
-
-
-
-
+const deleteUser = async (req, res, next) => {
+    try {
+        const { _id } = req.user;
+        await User.findByIdAndDelete(_id);
+        if (await User.findById(_id)) {
+            return res.status(404).json('User was not deleted ❌');
+        } else {
+            deleteImgCloudinary(req.user.image);
+            return res.status(200).json('User was deleted 👍')
+        }
+    } catch (error) {
+        return next(error);
+    };
+};
 
 
 module.exports = {
@@ -452,6 +465,7 @@ module.exports = {
     forgotPassword,
     sendPassword,
     modifyPassword,
-    update
+    update,
+    deleteUser
 };
 

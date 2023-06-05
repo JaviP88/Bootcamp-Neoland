@@ -1,4 +1,5 @@
 const User = require("../models/user.model");
+const Character = require("../models/character.model");
 const bcrypt = require('bcrypt');
 const dotenv = require('dotenv');
 const nodemailer = require('nodemailer');
@@ -457,6 +458,46 @@ const deleteUser = async (req, res, next) => {
 };
 
 
+//! ------------------------------------------------------------------------
+//? -------------------- ADD CHARACTER TO FAVOURITE ------------------------
+//! ------------------------------------------------------------------------
+
+const addFavouriteCharacter = async (req, res, next) => {
+    try {
+        const { userId, characterId } = req.body;     //?  userId y characterId???????? 
+
+        const user = await User.findById(userId);
+        const favCharacter = await Character.findById(characterId);
+
+        // Si no hay usuario devolvemos un error
+        if (!user) {
+            return res.status(404).json('User not found')
+        }
+        // Si no hay character devolvemos un error
+        if (!favCharacter) {
+            return res.status(404).json('Favourite character not found')
+        }
+        //Hacemos un includes para comprobar que ese character no está incluido ya
+        if (user.favouriteCharacters.includes(favCharacter)) {
+            return res.status(404).json('Character already added to user')
+        } else {
+            // Pusheamos el character en el user...y el user en el character
+            user.favouriteCharacters.push(characterId);
+            favCharacter.user.push(userId);
+            // Y lo guardamos
+            await user.save();
+            await favCharacter.save();
+            // Mandamos un status 200
+            return res.status(200).json('Character added to favourites')
+        }
+    } catch (error) {
+        return next(setError(500, 'internal server error'))
+    }
+}
+
+
+
+
 module.exports = {
     register,
     checkNewUser,
@@ -466,6 +507,7 @@ module.exports = {
     sendPassword,
     modifyPassword,
     update,
-    deleteUser
+    deleteUser,
+    addFavouriteCharacter
 };
 

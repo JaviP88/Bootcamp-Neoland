@@ -3,7 +3,7 @@ const {Schema} = mongoose
 
 const CharactersSchema = new Schema(
     {
-        name: {type:String, required:true, unique},
+        name: {type:String, required:true, unique:true},
         image: {type:String, required:true},
         movie: {type:String, required:true},
         decription: {type:String, required:true},

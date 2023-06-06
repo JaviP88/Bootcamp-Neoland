@@ -30,67 +30,91 @@ const register = async (req, res, next) => {
                 user: email,
                 pass: password,
             },
-            });
+        });
 
-            //! Ahora creamos el código
-            const confirmationCode = Math.floor(
-                Math.random() * (999999 - 100000) + 100000
-            );
+        //! Ahora creamos el código
+        const confirmationCode = Math.floor(
+            Math.random() * (999999 - 100000) + 100000
+        );
 
-            //! HACER UNA NUEVA INSTANCIA DE USUARIO
-            const newUser = new User({...req.body, confirmationCode})
+        //! HACER UNA NUEVA INSTANCIA DE USUARIO
+        const newUser = new User({ ...req.body, confirmationCode })
 
-             //! le metemos la imagen en caso de recibirla, si no la recibo le meto una estandar
-            if (req.file){
-                newUser.image = req.file.path
-            } else {
-                newUser.image = 'https://pic.onlinewebfonts.com/svg/img_181369.png';
+        //! le metemos la imagen en caso de recibirla, si no la recibo le meto una estandar
+        if (req.file){
+            newUser.image = req.file.path
+        } else {
+            newUser.image = 'https://pic.onlinewebfonts.com/svg/img_181369.png';
+        }
+
+         //! tenemos que buscarlo en la base de datos para saber que no existe
+
+        const userExist = await User.findOne({
+            email: newUser.email,
+            name: newUser.name
+        });
+
+        if (userExist) {
+            //Se puede hacer return res.status(409).json("this user already exist") o se puede hacer un return next() para que rompa la ejecución.
+            // Pero en helpers, haniamos creado un manejador de errores, así que vamos a usarlo.
+            if (req.file) deleteImgCloudinary(catchImg)   //! siempre se sube la imagen aunque el user esté repetido (porque lo sube el middleware), por eso hay que traerse la funcion deleteImgCloudinary aquí para borrarla.
+
+            return next(setError(409, 'this user already exist'));
+        } else {
+            const createUser = await newUser.save();
+            createUser.password = null;
+
+            //! -------- VAMOS A ENVIAR EL CORREO ------
+            const mailOptions = {
+                from: email,
+                to: req.body.email,
+                subject: "Code confirmation",
+                text: `Your code is ${confirmationCode}`
             }
 
-             //! tenemos que buscarlo en la base de datos para saber que no existe
-
-             const userExist = await User.findOne({
-                email: newUser.email,
-                name: newUser.name
-             });
-
-             if (userExist) {
-                //Se puede hacer return res.status(409).json("this user already exist") o se puede hacer un return next() para que rompa la ejecución.
-                // Pero en helpers, haniamos creado un manejador de errores, así que vamos a usarlo.
-                deleteImgCloudinary(catchImg)   //! siempre se sube la imagen aunque el user esté repetido (porque lo sube el middleware), por eso hay que traerse la funcion deleteImgCloudinary aquí para borrarla.
-
-                return next(setError(409, 'this user already exist'));
-             } else {
-                const createUser = await newUser.save();
-                createUser.password = null;
-
-                //! -------- VAMOS A ENVIAR EL CORREO ------
-                const mailOptions = {
-                    from: email,
-                    to: req.body.email,
-                    subject: "Code confirmation",
-                    text: `Your code is ${confirmationCode}`
-                }
-
-                transporter.sendMail(mailOptions, (error, info) => {
-                    if (error) {
+            transporter.sendMail(mailOptions, (error, info) => {
+                if (error) {
                         console.log(error);
-                    } else {
+                } else {
                         console.log('Email sent: ' + info.response);
-                    }
-                });
+                }
+            });
 
-                return res.status(201).json({
-                    user: createUser,
-                    confirmationCode: confirmationCode
-                });
-             };
+            return res.status(201).json({
+                user: createUser,
+                confirmationCode: confirmationCode
+            });
+        };
     } catch (error) {
         deleteImgCloudinary(catchImg)   //! siempre se sube la imagen aunque el user esté repetido (porque lo sube el middleware), por eso hay que traerse la funcion deleteImgCloudinary aquí para borrarla.
         return next(setError(error.code || 500, error.message || 'Create user failed'));   //? A revisar!!!, si el usuario existe, te lanza un error 500 en lugar del 409 (habrá que meterlo en un try catch? o detener la ejecución
     };
 };
 
+
+
+
+// const register = async (req, res, next) => {
+//     try {
+//         const user = req.body
+//         if (user) {
+//             return res.status(200).json(user)
+//         } else {
+//             return res.status(404).json('esta mierda no funciona')
+//         }
+//     } catch (error) {
+//         return next(error)
+//     }
+// }
+
+
+// {
+// 	"email": "javiperezpajuelo@gmail.com",
+// 	"name": "javi",
+// 	"password": "Javi123!",
+// 	"rol": "admin",
+// 	"gender": "hombre"
+// }
 
 //! ------------------------------------------------------------------------
 //? -------------------------- CHECK NEW USER ------------------------------

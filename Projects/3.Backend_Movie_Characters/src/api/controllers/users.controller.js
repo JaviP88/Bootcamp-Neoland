@@ -120,7 +120,7 @@ const register = async (req, res, next) => {
 //? -------------------------- CHECK NEW USER ------------------------------
 //! ------------------------------------------------------------------------
 
-const checkNewUser = async (res, req, next) => {
+const checkNewUser = async (req, res, next) => {
     try {
          //! nos traemos de la req.body el email y codigo de confirmation
         const { email, confirmationCode } = req.body;
@@ -130,20 +130,20 @@ const checkNewUser = async (res, req, next) => {
 
         if (!userExists) {
             //!No existe----> 404 de no se encuentra
-            return res.status (404).json("User not found");
+            return res.status(404).json("User not found");
         } else {
             // cogemos que comparamos que el codigo que recibimos por la req.body y el del userExists es igual
             if (confirmationCode === userExists.confirmationCode) {
 
                 // si es igual actualizamos la propiedad check y la ponemos a true
                 try {
-                    await userExists.updateOne({ check: true });
+                    await userExists.updateOne({ checkConfrmationCode: true });
                     // hacemos un testeo de que este user se ha actualizado correctamente, hacemos un findOne
                     const updateUser = await User.findOne({ email });
 
                     // este finOne nos sirve para hacer un ternario que nos diga si la propiedad vale true o false
                     return res.status(200).json({
-                        testCheckOk: updateUser.check == true ? true : false,
+                        testCheckOk: updateUser.checkConfrmationCode == true ? true : false,
                     });
                 } catch (error) {
                 return res.status(404).json(error.message);

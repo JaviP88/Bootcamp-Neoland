@@ -44,7 +44,7 @@ app.use((req, res, next) => {
 app.use(express.json({ limit: '5mb' }));
 // urlEncoded (lo protegemos contra ataques poniendo un limite de mbs)
 // Con esto no vamos a poder ni enviar ni recibir ningun fichero JSON más grande que "x" mbs.
-app.use(express.urlencoded({ limit: '5mb', extended: true }));
+app.use(express.urlencoded({ limit: '5mb', extended: false }));
 
 //! ------ LAS ROUTAS -------------------------------------------
 const UserRoutes = require("./src/api/routes/user.routes");

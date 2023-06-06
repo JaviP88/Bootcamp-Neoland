@@ -176,9 +176,9 @@ const checkNewUser = async (req, res, next) => {
 //? -------------------------- RESEND CODE CONFIRMATION---------------------
 //! ------------------------------------------------------------------------
 
-const resentCode = async (res, req, next) => {
+const resentCode = async (req, res, next) => {
     try {
-         //! vamos a configurar nodemailer porque tenemos que enviar un codigo
+        //! vamos a configurar nodemailer porque tenemos que enviar un codigo
         const email = process.env.EMAIL;
         const password = process.env.PASSWORD;
         const transporter = nodemailer.createTransport({

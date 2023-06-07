@@ -10,7 +10,8 @@ const {
     modifyPassword,
     update,
     deleteUser,
-    addFavouriteCharacter
+    addFavouriteCharacter,
+    allUsers
 } = require("../controllers/users.controller");
 const { isAuth, isAuthAdmin } = require('../../middlewares/auth.middleware');
 const UserRoutes = express.Router()
@@ -24,6 +25,8 @@ UserRoutes.patch('/changepassword', [isAuth], modifyPassword);
 UserRoutes.patch('/update/update', [isAuth], upload.single('image'), update);
 UserRoutes.delete('/', [isAuth], deleteUser);
 UserRoutes.post('/addFavouriteCharacter', [isAuth], addFavouriteCharacter);   //?    ¿¿Hay que meterle en la ruta :id??
+
+UserRoutes.get('/', allUsers);
 
 
 //! -------REDIRECT --------------------

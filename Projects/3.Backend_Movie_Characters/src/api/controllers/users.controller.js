@@ -407,7 +407,9 @@ const update = async (req, res, next) => {
         patchUser.password = req.user.password;
         patchUser.rol = req.user.rol;
         patchUser.confirmationCode = req.user.confirmationCode;
-        patchUser.check = req.user.check;
+        patchUser.checkConfrmationCode = req.user.checkConfrmationCode;
+        patchUser.favouriteCharacters = req.user.favouriteCharacters;
+
 
         // actualizamos en la db con el id y la instancia del modelo de user
         try {

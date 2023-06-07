@@ -3,7 +3,7 @@ const { upload } = require("../../middlewares/files.middleware");
 const {
     register,
     checkNewUser,
-    resentCode,
+    resendCode,
     login,
     forgotPassword,
     sendPassword,
@@ -17,7 +17,7 @@ const UserRoutes = express.Router()
 
 UserRoutes.post('/register', upload.single("image"), register);
 UserRoutes.post('/check', checkNewUser);
-UserRoutes.post('/resend', resentCode);
+UserRoutes.post('/resend', resendCode);
 UserRoutes.post('/login', login);
 UserRoutes.get('/forgotpassword', forgotPassword);   //? Hay que hacer el redirecionamiento (más abajo), para hacerlo sólo se puede hacer con get, nunca con post
 UserRoutes.patch('/changepassword', [isAuth], modifyPassword);

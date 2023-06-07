@@ -176,7 +176,7 @@ const checkNewUser = async (req, res, next) => {
 //? -------------------------- RESEND CODE CONFIRMATION---------------------
 //! ------------------------------------------------------------------------
 
-const resentCode = async (req, res, next) => {
+const resendCode = async (req, res, next) => {
     try {
         //! vamos a configurar nodemailer porque tenemos que enviar un codigo
         const email = process.env.EMAIL;
@@ -525,7 +525,7 @@ const addFavouriteCharacter = async (req, res, next) => {
 module.exports = {
     register,
     checkNewUser,
-    resentCode,
+    resendCode,
     login,
     forgotPassword,
     sendPassword,

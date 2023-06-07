@@ -257,13 +257,13 @@ const login = async (req, res, next) => {
 
 
 //! -------------------------------------------------------------------------
-//? ---------------------CAMBIO CONTRASEÑA SIN ESTAR LOGADO------------------
+//? ---------------------CAMBIO CONTRASEÑA SIN ESTAR LOGADO (forgotPassword)------------------
 //! -------------------------------------------------------------------------
 
 const forgotPassword = async (req, res, next) => {
     try {
         // nos traemos el email de la req.body
-        const email = req.body
+        const { email } = req.body
         // esto lo hacemos para ver si el usuario esta registrado porque si no lo esta le lanzamos un 404
         const userDb = await User.findOne({email});
         if (userDb) {
@@ -304,7 +304,7 @@ const sendPassword = async (req, res, next) => {
             from: email,
             to: userDb.email,
             subject: '-----',
-            text: `User: ${userDb.name}. Your new code login is ${passwordSecure} If you did not make this change or you believe an unauthorised person has accessed your account, please let us know as soon as possible`,
+            text: `User: ${userDb.name}. Your new code login is ${securePassword} If you did not make this change or you believe an unauthorised person has accessed your account, please let us know as soon as possible`,
         };
         // enviamos el correo y dentro del envio gestionamos el guardado de la nueva contraseña
         transporter.sendMail(mailOptions, async function (error) {

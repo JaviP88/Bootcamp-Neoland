@@ -349,7 +349,7 @@ const sendPassword = async (req, res, next) => {
 
 
 //! ------------------------------------------------------------------------
-//? ---------------------CAMBIO CONTRASEÑA ESTANDO LOGADO-------------------
+//? ---------------------CAMBIO CONTRASEÑA ESTANDO LOGADO (ChangePassword)-------------------
 //! ------------------------------------------------------------------------
 
 const modifyPassword = async (req, res, next) => {

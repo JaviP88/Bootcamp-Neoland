@@ -11,6 +11,7 @@ const {
     update,
     deleteUser,
     addFavouriteCharacter,
+    getUserById,
     allUsers
 } = require("../controllers/users.controller");
 const { isAuth, isAuthAdmin } = require('../../middlewares/auth.middleware');
@@ -24,6 +25,7 @@ UserRoutes.get('/forgotpassword', forgotPassword);   //? Hay que hacer el redire
 UserRoutes.patch('/changepassword', [isAuth], modifyPassword);
 UserRoutes.patch('/update/update', [isAuth], upload.single('image'), update);
 UserRoutes.delete('/', [isAuth], deleteUser);
+UserRoutes.get('/:_id', [isAuthAdmin], getUserById);
 UserRoutes.post('/addFavouriteCharacter', [isAuth], addFavouriteCharacter);   //?    ¿¿Hay que meterle en la ruta :id??
 
 UserRoutes.get('/', allUsers);

@@ -522,15 +522,27 @@ const addFavouriteCharacter = async (req, res, next) => {
 }
 
 
-//! ----------------------------------------------------
-//? -------------------- LOGOUT ------------------------
-//! ----------------------------------------------------
-
-
-
 //! -------------------------------------------------------
 //? -------------------- GET BY ID ------------------------
 //! -------------------------------------------------------
+
+const getUserById = async (req, res, next) => {
+    try {
+        const { _id } = req.params;
+        const userById = await User.findById(_id);
+
+        if(userById) {
+            return res.status(200).json(userById);
+        } else {
+            return res.status(404).json('This user Id does not exist.')
+        }
+    } catch (error) {
+        return next(error)
+    }
+}
+
+
+
 
 
 
@@ -565,6 +577,7 @@ module.exports = {
     update,
     deleteUser,
     addFavouriteCharacter,
+    getUserById,
     allUsers
 };
 

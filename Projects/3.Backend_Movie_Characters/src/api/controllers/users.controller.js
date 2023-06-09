@@ -55,7 +55,7 @@ const register = async (req, res, next) => {
         });
 
         if (userExist) {
-            //Se puede hacer return res.status(409).json("this user already exist") o se puede hacer un return next() para que rompa la ejecución.
+            // Se puede hacer return res.status(409).json("this user already exist") o se puede hacer un return next() para que rompa la ejecución.
             // Pero en helpers, haniamos creado un manejador de errores, así que vamos a usarlo.
             if (req.file) deleteImgCloudinary(catchImg)   //! siempre se sube la imagen aunque el user esté repetido (porque lo sube el middleware), por eso hay que traerse la funcion deleteImgCloudinary aquí para borrarla.
 
@@ -91,30 +91,6 @@ const register = async (req, res, next) => {
     };
 };
 
-
-
-
-// const register = async (req, res, next) => {
-//     try {
-//         const user = req.body
-//         if (user) {
-//             return res.status(200).json(user)
-//         } else {
-//             return res.status(404).json('esta mierda no funciona')
-//         }
-//     } catch (error) {
-//         return next(error)
-//     }
-// }
-
-
-// {
-// 	"email": "javiperezpajuelo@gmail.com",
-// 	"name": "javi",
-// 	"password": "Javi123!",
-// 	"rol": "admin",
-// 	"gender": "hombre"
-// }
 
 //! ------------------------------------------------------------------------
 //? -------------------------- CHECK NEW USER ------------------------------
@@ -490,7 +466,7 @@ const deleteUser = async (req, res, next) => {
 
 const addFavouriteCharacter = async (req, res, next) => {
     try {
-        const { userId, characterId } = req.body;     //?  userId y characterId???????? 
+        const { userId, characterId } = req.body;
 
         const user = await User.findById(userId);
         const favCharacter = await Character.findById(characterId);
@@ -538,13 +514,8 @@ const getUserById = async (req, res, next) => {
         }
     } catch (error) {
         return next(error)
-    }
-}
-
-
-
-
-
+    };
+};
 
 
 //! ---------------------------------------------------------------------------

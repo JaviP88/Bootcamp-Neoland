@@ -54,6 +54,84 @@ const createNewCharacter = async (req, res, next) => {
 //? -------------------------- UPDATE CHARACTER -------------------------------------
 //! ---------------------------------------------------------------------------------
 
+const updateCharacter = async (req, res, next) => {
+    let catchImg = req.file?.path;
+    try {
+        // actualizamos los indexes de los elementos unicos por si han modificado
+        await Character.syncIndexes();
+
+        const { id } = req.params;
+        // Comprobamos que el ID es correcto
+        const characterExist = await Character.findById(id);
+        if (characterExist) {
+            const updateCharacterWithNewInfo = new Character(req.body);
+            // Si tenemos la req.file, le metemos el path de cloudinary
+            if (req.file) {
+                updateCharacterWithNewInfo.image = req.file.path;
+            };
+            // No quiero que se pueda actualizar el ID
+            updateCharacterWithNewInfo._id = characterExist._id;
+
+            // Actualizamos la DB con el ID y la instancia del modelo de character
+            try {
+                await Character.findByIdAndUpdate(characterExist, updateCharacterWithNewInfo);
+                if (req.file) {
+                    deleteImgCloudinary(characterExist.image);
+                };
+
+                //! ----------------test  runtime ----------------
+                // buscamos el personaje actualizado
+                const updateCharacter = await Character.findById(id);
+                // cogemos las keys del body
+                const updateKeys = Object.keys(req.body);
+                
+                // creamos una variable para guardar los test
+                const testUpdate = [];
+                // recorremos las keys y comparamos
+                updateKeys.forEach((item) => {
+                    // Ponemos item entre [] para que coja cada nombre de la clave concreta en lugar de la palabra 'item'
+                    // Ponemos == ya que pueden aparecer numeros que en uno actue como numero y en otro como string (updateCharacter lo pasa a texto plano)
+                    if (updateCharacter[item] == req.body[item]) {
+                        testUpdate.push({
+                            [item]: true
+                        });
+                    } else {
+                        testUpdate.push({
+                            [item]: false
+                        });
+                    };
+                });
+                //Ahora comparamos la imagen a ver si se ha actualizado
+                if (req.file) {
+                    updateCharacter.image == req.file.path
+                    ? testUpdate.push({
+                        file: true
+                    })
+                    : testUpdate.push({
+                        file: false
+                    });
+                };
+                return res.status(200).json({
+                    testUpdate
+                });
+            } catch (error) {
+                return res.status(404).json(error.message);
+            };
+        } else {
+            if (req.file) deleteImgCloudinary(catchImg)
+            return res.status(400).json('This character ID does not exist.')
+        }
+
+    } catch (error) {
+        if (req.file) deleteImgCloudinary(catchImg);
+        return next(setError(error.code || 500, error.message || 'Update character failed'));
+    };
+};
+
+
+
+
+
 //! ---------------------------------------------------------------------------------
 //? -------------------------- DELETE CHARACTER -------------------------------------
 //! ---------------------------------------------------------------------------------
@@ -70,5 +148,6 @@ const createNewCharacter = async (req, res, next) => {
 
 
 module.exports = {
-    createNewCharacter
+    createNewCharacter,
+    updateCharacter
 };

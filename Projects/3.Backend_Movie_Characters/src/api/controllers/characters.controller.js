@@ -129,12 +129,26 @@ const updateCharacter = async (req, res, next) => {
 };
 
 
-
-
-
 //! ---------------------------------------------------------------------------------
 //? -------------------------- DELETE CHARACTER -------------------------------------
 //! ---------------------------------------------------------------------------------
+
+const deleteCharacter = async (req, res, next) => {
+    const { id } = req.params;
+    const characterExist = await Character.findById(id);
+    const deleteCharacter = await Character.findByIdAndDelete(id)
+    try {
+        if (deleteCharacter) {
+            deleteImgCloudinary(characterExist.image);
+            return res.status(200).json('Character deleted from de DB ✅')
+        } else {
+            return res.status(404).json('Character was not deleted ❌');
+        };
+    } catch (error) {
+        return next(setError(error.code || 500, error.message || 'Update character failed'));
+    };
+};
+
 
 //! ------------------------------------------------------------------------------------
 //? -------------------------- GET CHARACTER BY ID -------------------------------------
@@ -149,5 +163,6 @@ const updateCharacter = async (req, res, next) => {
 
 module.exports = {
     createNewCharacter,
-    updateCharacter
+    updateCharacter,
+    deleteCharacter
 };

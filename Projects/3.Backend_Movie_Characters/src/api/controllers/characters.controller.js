@@ -154,6 +154,22 @@ const deleteCharacter = async (req, res, next) => {
 //? -------------------------- GET CHARACTER BY ID -------------------------------------
 //! ------------------------------------------------------------------------------------
 
+const getCharacterById = async (req, res, next) => {
+    
+    try {
+        const { id } = req.params;
+        const characterById = await Character.findById(id);
+        if(characterById) {
+            return res.status(200).json(characterById);
+        } else {
+            return res.status(404).json('We could not find a character with this ID.')
+        }
+    } catch (error) {
+        return next(error);
+    }
+}
+
+
 //! -----------------------------------------------------------------------------------
 //? -------------------------- GET ALL CHARACTERS -------------------------------------
 //! -----------------------------------------------------------------------------------
@@ -161,8 +177,10 @@ const deleteCharacter = async (req, res, next) => {
 
 
 
+
 module.exports = {
     createNewCharacter,
     updateCharacter,
-    deleteCharacter
+    deleteCharacter,
+    getCharacterById
 };

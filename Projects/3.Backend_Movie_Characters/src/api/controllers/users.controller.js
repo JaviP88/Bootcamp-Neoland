@@ -523,7 +523,7 @@ const getUserById = async (req, res, next) => {
 //! ---------------------------------------------------------------------------
 
 
-const allUsers = async (req, res) => {
+const allUsers = async (req, res, next) => {
     try {
         const getAllUsers = await User.find();
         if (getAllUsers) {

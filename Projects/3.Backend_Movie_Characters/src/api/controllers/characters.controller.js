@@ -185,7 +185,27 @@ const getAllCharacters = async (req, res, next) => {
     } catch (error) {
         return next(error);
     }
-}
+};
+
+
+//! ----------------------------------------------------------------------------------------
+//? -------------------------- GET CHARACTERS IN MOVIE -------------------------------------
+//! ----------------------------------------------------------------------------------------
+
+const movieFilterCharacter = async (req, res, next) => {
+    const { movie } = req.params;
+    try {
+        const movieCharacters = await Character.find({movie: movie});
+        if (movieCharacters) {
+            return res.status(200).json(movieCharacters)
+        } else {
+            return res.status(404).json('We could not found any character for this movie');
+        };
+    } catch (error) {
+        return next(error);
+    };
+};
+
 
 
 
@@ -194,5 +214,6 @@ module.exports = {
     updateCharacter,
     deleteCharacter,
     getCharacterById,
-    getAllCharacters
+    getAllCharacters,
+    movieFilterCharacter
 };

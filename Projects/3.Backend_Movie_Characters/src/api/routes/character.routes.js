@@ -4,7 +4,8 @@ const {
     createNewCharacter,
     updateCharacter,
     deleteCharacter,
-    getCharacterById
+    getCharacterById,
+    getAllCharacters
 } = require('../controllers/characters.controller');
 const { isAuth, isAuthAdmin } = require('../../middlewares/auth.middleware');
 const CharacterRoutes = express.Router();
@@ -13,6 +14,7 @@ CharacterRoutes.post('/newCharacter', /*[isAuthAdmin],*/ upload.single('image'),
 CharacterRoutes.patch('/updateCharacter/:id', /*[isAuthAdmin],*/ upload.single('image'), updateCharacter);
 CharacterRoutes.delete('/deleteCharacter/:id', /*[isAuthAdmin],*/ deleteCharacter);
 CharacterRoutes.get('/:id', getCharacterById);
+CharacterRoutes.get('/allCharacters/allCharacters', getAllCharacters);   //? por qué me da un error si solo pongo /allCharacter? si pongo /allCharacters/allCharacters va bien
 
 
 

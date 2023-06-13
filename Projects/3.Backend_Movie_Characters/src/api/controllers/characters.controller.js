@@ -174,7 +174,18 @@ const getCharacterById = async (req, res, next) => {
 //? -------------------------- GET ALL CHARACTERS -------------------------------------
 //! -----------------------------------------------------------------------------------
 
-
+const getAllCharacters = async (req, res, next) => {
+    try {
+        const allCharacters = await Character.find()
+        if (allCharacters) {
+            return res.status(200).json(allCharacters);
+        } else {
+            return res.status(404).json('❌ We could not get all characters. ❌')
+        }
+    } catch (error) {
+        return next(error);
+    }
+}
 
 
 
@@ -182,5 +193,6 @@ module.exports = {
     createNewCharacter,
     updateCharacter,
     deleteCharacter,
-    getCharacterById
+    getCharacterById,
+    getAllCharacters
 };

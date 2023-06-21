@@ -71,6 +71,7 @@ const updateCharacter = async (req, res, next) => {
             };
             // No quiero que se pueda actualizar el ID
             updateCharacterWithNewInfo._id = characterExist._id;
+            updateCharacterWithNewInfo.user = characterExist.user;
 
             // Actualizamos la DB con el ID y la instancia del modelo de character
             try {
@@ -158,7 +159,7 @@ const getCharacterById = async (req, res, next) => {
     
     try {
         const { id } = req.params;
-        const characterById = await Character.findById(id);
+        const characterById = await Character.findById(id).populate('user');
         if(characterById) {
             return res.status(200).json(characterById);
         } else {
@@ -195,7 +196,7 @@ const getAllCharacters = async (req, res, next) => {
 const movieFilterCharacter = async (req, res, next) => {
     const { movie } = req.params;
     try {
-        const movieCharacters = await Character.find({movie: movie});
+        const movieCharacters = await Character.find({movie: movie}).populate('user');
         if (movieCharacters) {
             return res.status(200).json(movieCharacters)
         } else {

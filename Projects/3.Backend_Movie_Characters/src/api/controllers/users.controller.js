@@ -503,7 +503,7 @@ const addFavouriteCharacter = async (req, res, next) => {
 const getUserById = async (req, res, next) => {
     try {
         const { _id } = req.params;
-        const userById = await User.findById(_id);
+        const userById = await User.findById(_id).populate("favouriteCharacters");
 
         if(userById) {
             return res.status(200).json(userById);

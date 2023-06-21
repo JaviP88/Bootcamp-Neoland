@@ -460,40 +460,38 @@ const deleteUser = async (req, res, next) => {
 };
 
 
-//! ------------------------------------------------------------------------
-//? -------------------- ADD CHARACTER TO FAVOURITE ------------------------
-//! ------------------------------------------------------------------------
+//! -------------------------------------------------------------------------------
+//? -------------------- ADD/DELETE CHARACTER TO FAVOURITE ------------------------
+//! -------------------------------------------------------------------------------
 
 const addFavouriteCharacter = async (req, res, next) => {
     try {
-        const { userId, characterId } = req.body;
+        // Sacamos el ID del usuario
+        const { _id } = req.user;
+        // Y el id del personaje que queremos añadir a favoritos
+        const favCharacter = req.params.id
+        // Actualizamos los indexes
+        await Character.syncIndexes();
+        try {
+            const user = await User.findById(_id);
+            const character = await Character.findById(favCharacter);
 
-        const user = await User.findById(userId);
-        const favCharacter = await Character.findById(characterId);
+            if (!user.favouriteCharacters.includes(favCharacter)) {
+                await user.updateOne({ $push: { favouriteCharacters: favCharacter } });
+                await character.updateOne({ $push: { user: _id } });
 
-        // Si no hay usuario devolvemos un error
-        if (!user) {
-            return res.status(404).json('User not found')
-        }
-        // Si no hay character devolvemos un error
-        if (!favCharacter) {
-            return res.status(404).json('Favourite character not found')
-        }
-        //Hacemos un includes para comprobar que ese character no está incluido ya
-        if (user.favouriteCharacters.includes(favCharacter)) {
-            return res.status(404).json('Character already added to user')
-        } else {
-            // Pusheamos el character en el user...y el user en el character
-            user.favouriteCharacters.push(characterId);
-            favCharacter.user.push(userId);
-            // Y lo guardamos
-            await user.save();
-            await favCharacter.save();
-            // Mandamos un status 200
-            return res.status(200).json('Character added to favourites')
-        }
+                res.status(200).json('The character has been liked');
+            } else {
+                await user.updateOne({ $pull: { favouriteCharacters: favCharacter } });
+                await character.updateOne({ $pull: { user: _id } })
+
+                res.status(200).json('The character has been disliked');
+            }
+        } catch (err) {
+            res.status(500).json(err);
+        } 
     } catch (error) {
-        return next(setError(500, 'internal server error'))
+        return next(error);
     }
 }
 
@@ -525,7 +523,7 @@ const getUserById = async (req, res, next) => {
 
 const allUsers = async (req, res, next) => {
     try {
-        const getAllUsers = await User.find();
+        const getAllUsers = await User.find().populate("favouriteCharacters");
         if (getAllUsers) {
             return res.status(200).json(getAllUsers)
         } else {

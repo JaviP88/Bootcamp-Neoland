@@ -26,7 +26,7 @@ UserRoutes.patch('/changepassword', [isAuth], modifyPassword);
 UserRoutes.patch('/update/update', [isAuth], upload.single('image'), update);
 UserRoutes.delete('/', [isAuth], deleteUser);
 UserRoutes.get('/:_id', [isAuthAdmin], getUserById);
-UserRoutes.post('/addFavouriteCharacter', [isAuth], addFavouriteCharacter);   //?    ¿¿Hay que meterle en la ruta :id??
+UserRoutes.post('/addFavouriteCharacter/:id', [isAuth], addFavouriteCharacter);   //?    ¿¿Hay que meterle en la ruta :id??
 
 UserRoutes.get('/', allUsers);
 

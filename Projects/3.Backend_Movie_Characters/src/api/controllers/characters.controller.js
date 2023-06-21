@@ -176,7 +176,7 @@ const getCharacterById = async (req, res, next) => {
 
 const getAllCharacters = async (req, res, next) => {
     try {
-        const allCharacters = await Character.find()
+        const allCharacters = await Character.find().populate('user');
         if (allCharacters) {
             return res.status(200).json(allCharacters);
         } else {
@@ -188,9 +188,9 @@ const getAllCharacters = async (req, res, next) => {
 };
 
 
-//! ----------------------------------------------------------------------------------------
-//? -------------------------- GET CHARACTERS IN MOVIE -------------------------------------
-//! ----------------------------------------------------------------------------------------
+//! --------------------------------------------------------------------------------------
+//? -------------------------- GET MOVIE CHARACTERS -------------------------------------
+//! --------------------------------------------------------------------------------------
 
 const movieFilterCharacter = async (req, res, next) => {
     const { movie } = req.params;
